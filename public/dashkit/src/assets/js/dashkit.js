@@ -5,242 +5,73 @@
 
 'use strict';
 
-
-// Header
-//
-// Header card chart
+// Audience chart
 
 (function() {
+  var chart = document.getElementById('audienceChart');
 
-  //
-  // Variables
-  //
-  
-  var chart = document.getElementById('headerChart');
-
-
-  //
-  // Functions
-  //
-
-  function init(chart) {
+  if (typeof Chart !== 'undefined' && chart) {
     new Chart(chart, {
       type: 'line',
       options: {
         scales: {
           yAxes: [{
+            id: 'yAxisOne',
+            type: 'linear',
+            display: 'auto',
             gridLines: {
               color: '#283E59',
               zeroLineColor: '#283E59'
             },
             ticks: {
               callback: function(value) {
-                if ( !(value % 10) ) {
-                  return '$' + value + 'k';
-                }
+                return value + 'k';
               }
             }
-          }]
-        },
-        tooltips: {
-          callbacks: {
-            label: function(item, data) {
-              var label = data.datasets[item.datasetIndex].label || '';
-              var yLabel = item.yLabel;
-              var content = '';
-
-              if (data.datasets.length > 1) {
-                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-              }
-
-              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
-              return content;
-            }
-          }
-        }
-      },
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-          label: 'Performance',
-          data: [0,10,5,15,10,20,15,25,20,30,25,40]
-        }]
-      }
-    });
-  };
-
-
-  //
-  // Events
-  //
-  
-  if (typeof Chart !== 'undefined' && chart) {
-    init(chart);
-  }
-
-})();
-
-
-// Performance
-//
-// Performance card chart
-
-(function() {
-
-  //
-  // Variables
-  //
-
-  var chart = document.getElementById('performanceChart');
-
-
-  //
-  // Functions
-  //
-
-  function init(chart) {
-    new Chart(chart, {
-      type: 'line',
-      options: {
-        scales: {
-          yAxes: [{
+          }, {
+            id: 'yAxisTwo',
+            type: 'linear',
+            display: 'auto',
+            gridLines: {
+              color: '#283E59',
+              zeroLineColor: '#283E59'
+            },
             ticks: {
               callback: function(value) {
-                if ( !(value % 10) ) {
-                  return '$' + value + 'k'
-                }
+                return value + '%';
               }
             }
           }]
-        },
-        tooltips: {
-          callbacks: {
-            label: function(item, data) {
-              var label = data.datasets[item.datasetIndex].label || '';
-              var yLabel = item.yLabel;
-              var content = '';
-
-              if (data.datasets.length > 1) {
-                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-              }
-
-              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
-              return content;
-            }
-          }
         }
       },
       data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
-          label: 'Performance',
-          data: [0,10,5,15,10,20,15,25,20,30,25,40]
+          label: 'Customers',
+          data: [0, 10, 5, 15, 10, 20, 15, 25, 20, 30, 25, 40],
+          yAxisID: 'yAxisOne'
+        }, {
+          label: 'Sessions',
+          data: [50, 75, 35, 25, 55, 87, 67, 53, 25, 80, 87, 45],
+          yAxisID: 'yAxisOne',
+          hidden: true
+        }, {
+          label: 'Conversion',
+          data: [40, 57, 25, 50, 57, 32, 46, 28, 59, 34, 52, 48],
+          yAxisID: 'yAxisTwo',
+          hidden: true
         }]
       }
     });
   }
-
-
-  //
-  // Events
-  //
-
-  if (typeof Chart !== 'undefined' && chart) {
-    init(chart);
-  }
-
 })();
 
-
-// Performance alias
-//
-// Performance alias card chart
+// Convertions chart
 
 (function() {
-
-  //
-  // Variables
-  //
-
-  var chart = document.getElementById('performanceChartAlias');
-
-
-  //
-  // Functions
-  //
-
-  function init(chart) {
-    new Chart(chart, {
-      type: 'line',
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              callback: function(value) {
-                if ( !(value % 10) ) {
-                  return '$' + value + 'k'
-                }
-              }
-            }
-          }]
-        },
-        tooltips: {
-          callbacks: {
-            label: function(item, data) {
-              var label = data.datasets[item.datasetIndex].label || '';
-              var yLabel = item.yLabel;
-              var content = '';
-
-              if (data.datasets.length > 1) {
-                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-              }
-
-              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
-              return content;
-            }
-          }
-        }
-      },
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-          label: 'Performance',
-          data: [0,10,5,15,10,20,15,25,20,30,25,40]
-        }]
-      }
-    });
-  }
-
-
-  //
-  // Events
-  //
+  var chart = document.getElementById('conversionsChart');
 
   if (typeof Chart !== 'undefined' && chart) {
-    init(chart);
-  }
-
-})();
-
-
-// Orders
-//
-// Orders card chart
-
-(function() {
-
-  //
-  // Variables
-  //
-
-  var chart = document.getElementById('ordersChart');
-
-
-  //
-  // Functions
-  //
-
-  function init(chart) {
     new Chart(chart, {
       type: 'bar',
       options: {
@@ -248,204 +79,136 @@
           yAxes: [{
             ticks: {
               callback: function(value) {
-                if ( !(value % 10) ) {
-                  return '$' + value + 'k'
-                }
+                return value + '%';
               }
             }
           }]
-        },
-        tooltips: {
-          callbacks: {
-            label: function(item, data) {
-              var label = data.datasets[item.datasetIndex].label || '';
-              var yLabel = item.yLabel;
-              var content = '';
-
-              if (data.datasets.length > 1) {
-                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-              }
-
-              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
-              return content;
-            }
-          }
         }
       },
       data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        labels: ['Oct 1', 'Oct 2', 'Oct 3', 'Oct 4', 'Oct 5', 'Oct 6', 'Oct 7', 'Oct 8', 'Oct 9', 'Oct 10', 'Oct 11', 'Oct 12'],
         datasets: [{
-          label: 'Sales',
-          data: [25,20,30,22,17,10,18,26,28,26,20,32]
+          label: '2020',
+          data: [25, 20, 30, 22, 17, 10, 18, 26, 28, 26, 20, 32]
+        }, {
+          label: '2019',
+          data: [15, 10, 20, 12, 7, 0, 8, 16, 18, 16, 10, 22],
+          backgroundColor: '#d2ddec',
+          hidden: true
         }]
       }
     });
   }
-
-
-  //
-  // Events
-  //
-
-  if (typeof Chart !== 'undefined' && chart) {
-    init(chart);
-  }
-  
 })();
 
-
-// Orders alias
-//
-// Orders alias card chart
+// Traffic chart
 
 (function() {
-
-  //
-  // Variables
-  //
-
-  var chart = document.getElementById('ordersChartAlias');
-
-
-  //
-  // Functions
-  //
-
-  function init(chart) {
-    new Chart(chart, {
-      type: 'bar',
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              callback: function(value) {
-                if ( !(value % 10) ) {
-                  return '$' + value + 'k'
-                }
-              }
-            }
-          }]
-        },
-        tooltips: {
-          callbacks: {
-            label: function(item, data) {
-              var label = data.datasets[item.datasetIndex].label || '';
-              var yLabel = item.yLabel;
-              var content = '';
-
-              if (data.datasets.length > 1) {
-                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-              }
-
-              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
-              return content;
-            }
-          }
-        }
-      },
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-          label: 'Sales',
-          data: [25,20,30,22,17,10,18,26,28,26,20,32]
-        }]
-      }
-    });
-  }
-
-
-  //
-  // Events
-  //
+  var chart = document.getElementById('trafficChart');
 
   if (typeof Chart !== 'undefined' && chart) {
-    init(chart);
-  }
-  
-})();
-
-
-// Devices
-//
-// Devices card chart
-
-(function() {
-
-  //
-  // Variables
-  //
-
-  var chart = document.getElementById('devicesChart');
-
-
-  //
-  // Functions
-  //
-
-  function init(chart) {
     new Chart(chart, {
       type: 'doughnut',
       options: {
         tooltips: {
           callbacks: {
-            title: function(item, data) {
-              var title = data.labels[item[0].index];
-              return title;
-            },
-            label: function(item, data) {
-              var value = data.datasets[0].data[item.index];
-              var content = '';
-
-              content += '<span class="popover-body-value">' + value + '%</span>';
-              return content;
+            afterLabel: function() {
+              return '%'
             }
           }
         }
       },
       data: {
-        labels: ['Desktop', 'Tablet', 'Mobile'],
+        labels: ['Direct', 'Organic', 'Referral'],
         datasets: [{
           data: [60, 25, 15],
-          backgroundColor: [
-            '#2C7BE5',
-            '#A6C5F7',
-            '#D2DDEC'
-          ]
+          backgroundColor: ['#2C7BE5', '#A6C5F7', '#D2DDEC']
+        }, {
+          data: [15, 45, 20],
+          backgroundColor: ['#2C7BE5', '#A6C5F7', '#D2DDEC'],
+          hidden: true
         }]
       }
     });
   }
-
-
-  //
-  // Events
-  //
-
-  if (typeof Chart !== 'undefined' && chart) {
-    init(chart);
-  }
-
 })();
 
-
-// Weekly hours
-//
-// Weekly hours card chart
+// Traffic chart (alt)
 
 (function() {
+  var chart = document.getElementById('trafficChartAlt');
 
-  //
-  // Variables
-  //
+  if (typeof Chart !== 'undefined' && chart) {
+    new Chart(chart, {
+      type: 'doughnut',
+      options: {
+        tooltips: {
+          callbacks: {
+            afterLabel: function() {
+              return '%'
+            }
+          }
+        }
+      },
+      data: {
+        labels: ['Direct', 'Organic', 'Referral'],
+        datasets: [{
+          data: [60, 25, 15],
+          backgroundColor: ['#2C7BE5', '#A6C5F7', '#D2DDEC']
+        }, {
+          data: [15, 45, 20],
+          backgroundColor: ['#2C7BE5', '#A6C5F7', '#D2DDEC'],
+          hidden: true
+        }]
+      }
+    });
+  }
+})();
 
-  var chart = document.getElementById('weeklyHoursChart');
+// Sales chart
 
+(function() {
+  var chart = document.getElementById('salesChart');
 
-  //
-  // Functions
-  //
+  if (typeof Chart !== 'undefined' && chart) {
+    new Chart(chart, {
+      type: 'line',
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              callback: function(value) {
+                return '$' + value + 'k';
+              }
+            }
+          }]
+        }
+      },
+      data: {
+        labels: ['Oct 1', 'Oct 3', 'Oct 6', 'Oct 9', 'Oct 12', 'Oct 5', 'Oct 18', 'Oct 21', 'Oct 24', 'Oct 27', 'Oct 30'],
+        datasets: [{
+          label: 'All',
+          data: [0, 10, 5, 15, 10, 20, 15, 25, 20, 30, 25]
+        }, {
+          label: 'Direct',
+          data: [7, 40, 12, 27, 34, 17, 19, 30, 28, 32, 24],
+          hidden: true
+        }, {
+          label: 'Organic',
+          data: [2, 12, 35, 25, 36, 25, 34, 16, 4, 14, 15],
+          hidden: true
+        }]
+      }
+    });
+  }
+})();
 
-  function init(chart) {
+// Orders chart
+
+(function() {
+  var chart = document.getElementById('ordersChart');
+
+  if (typeof Chart !== 'undefined' && chart) {
     new Chart(chart, {
       type: 'bar',
       options: {
@@ -453,28 +216,107 @@
           yAxes: [{
             ticks: {
               callback: function(value) {
-                if ( !(value % 10) ) {
-                  return value + 'hrs'
-                }
+                return '$' + value + 'k';
               }
             }
           }]
-        },
-        tooltips: {
-          callbacks: {
-            label: function(item, data) {
-              var label = data.datasets[item.datasetIndex].label || '';
-              var yLabel = item.yLabel;
-              var content = '';
+        }
+      },
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Sales',
+          data: [25, 20, 30, 22, 17, 10, 18, 26, 28, 26, 20, 32]
+        }, {
+          label: 'Affiliate',
+          data: [15, 10, 20, 12, 7, 0, 8, 16, 18, 16, 10, 22],
+          backgroundColor: '#d2ddec',
+          hidden: true
+        }]
+      }
+    });
+  }
+})();
 
-              if (data.datasets.length > 1) {
-                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+// Earnings chart
+
+(function() {
+  var chart = document.getElementById('earningsChart');
+
+  if (typeof Chart !== 'undefined' && chart) {
+    new Chart(chart, {
+      type: 'bar',
+      options: {
+        scales: {
+          yAxes: [{
+            id: 'yAxisOne',
+            type: 'linear',
+            display: 'auto',
+            ticks: {
+              callback: function(value) {
+                return '$' + value + 'k';
               }
-
-              content += '<span class="popover-body-value">' + yLabel + 'hrs</span>';
-              return content;
             }
-          }
+          }, {
+            id: 'yAxisTwo',
+            type: 'linear',
+            display: 'auto',
+            ticks: {
+              callback: function(value) {
+                return value + 'k';
+              }
+            }
+          }, {
+            id: 'yAxisThree',
+            type: 'linear',
+            display: 'auto',
+            ticks: {
+              callback: function(value) {
+                return value + '%';
+              }
+            }
+          }]
+        }
+      },
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Earnings',
+          data: [18, 10, 5, 15, 10, 20, 15, 25, 20, 26, 25, 29, 18, 10, 5, 15, 10, 20],
+          yAxisID: 'yAxisOne'
+        }, {
+          label: 'Sessions',
+          data: [50, 75, 35, 25, 55, 87, 67, 53, 25, 80, 87, 45, 50, 75, 35, 25, 55, 19],
+          yAxisID: 'yAxisTwo',
+          hidden: true
+        }, {
+          label: 'Bounce',
+          data: [40, 57, 25, 50, 57, 32, 46, 28, 59, 34, 52, 48, 40, 57, 25, 50, 57, 29],
+          yAxisID: 'yAxisThree',
+          hidden: true
+        }]
+      }
+    });
+  }
+})();
+
+// Weekly hours chart
+
+(function() {
+  var chart = document.getElementById('weeklyHoursChart');
+
+  if (typeof Chart !== 'undefined' && chart) {
+    new Chart(chart, {
+      type: 'bar',
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              callback: function(value) {
+                return value + 'hrs';
+              }
+            }
+          }]
         }
       },
       data: {
@@ -485,37 +327,62 @@
       }
     });
   }
-
-
-  //
-  // Events
-  //
-
-  if (typeof Chart !== 'undefined' && chart) {
-    init(chart);
-  }
-
 })();
 
-
-// Sparkline
-//
-// Sparkline card chart
+// Overview chart
 
 (function() {
+  var chart = document.getElementById('overviewChart');
 
-  //
-  // Variables
-  //
-  
+  if (chart) {
+    new Chart(chart, {
+      type: 'line',
+      options: {
+        scales: {
+          yAxes: [{
+            id: 'yAxisOne',
+            type: 'linear',
+            display: 'auto',
+            ticks: {
+              callback: function(value) {
+                return '$' + value + 'k';
+              }
+            }
+          }, {
+            id: 'yAxisTwo',
+            type: 'linear',
+            display: 'auto',
+            ticks: {
+              callback: function(value) {
+                return value + 'hrs';
+              }
+            }
+          }]
+        }
+      },
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Earned',
+          data: [0, 10, 5, 15, 10, 20, 15, 25, 20, 30, 25, 40],
+          yAxisID: 'yAxisOne'
+        }, {
+          label: 'Hours Worked',
+          data: [7, 35, 12, 27, 34, 17, 19, 30, 28, 32, 24, 39],
+          yAxisID: 'yAxisTwo',
+          hidden: true
+        }]
+      }
+    });
+  }
+})();
+
+// Sparkline chart
+
+(function() {
   var chart = document.getElementById('sparklineChart');
 
-
-  //
-  // Functions
-  //
-
-  function init(chart) {
+  if (typeof Chart !== 'undefined' && chart) {
     new Chart(chart, {
       type: 'line',
       options: {
@@ -548,120 +415,101 @@
         }]
       }
     });
-  };
-
-
-  //
-  // Events
-  //
-  
-  if (typeof Chart !== 'undefined' && chart) {
-    init(chart);
   }
-
 })();
 
-
-// Sparkline
-//
-// Sparkline card charts (gray)
+// Sparkline chart (gray)
 
 (function() {
-
-  //
-  // Variables
-  //
-  
   var charts = document.querySelectorAll('#sparklineChartSocialOne, #sparklineChartSocialTwo, #sparklineChartSocialThree, #sparklineChartSocialFour');
 
+  if (typeof Chart !== 'undefined' && charts) {
+    [].forEach.call(charts, function(chart) {
+      new Chart(chart, {
+        type: 'line',
+        options: {
+          scales: {
+            yAxes: [{
+              display: false
+            }],
+            xAxes: [{
+              display: false
+            }]
+          },
+          elements: {
+            line: {
+              borderWidth: 2,
+              borderColor: '#D2DDEC'
+            },
+            point: {
+              hoverRadius: 0
+            }
+          },
+          tooltips: {
+            custom: function() {
+              return false;
+            }
+          }
+        },
+        data: {
+          labels: new Array(12),
+          datasets: [{
+            data: [0, 15, 10, 25, 30, 15, 40, 50, 80, 60, 55, 65]
+          }]
+        }
+      });
+    });
+  }
+})();
 
-  //
-  // Functions
-  //
+// Feed chart
 
-  function init(chart) {
+(function() {
+  var chart = document.getElementById('feedChart');
+
+  if (chart) {
     new Chart(chart, {
-      type: 'line',
+      type: 'bar',
       options: {
         scales: {
           yAxes: [{
-            display: false
-          }],
-          xAxes: [{
-            display: false
+            ticks: {
+              callback: function(value) {
+                return '$' + value + 'k';
+              }
+            }
           }]
-        },
-        elements: {
-          line: {
-            borderWidth: 2,
-            borderColor: '#D2DDEC'
-          },
-          point: {
-            hoverRadius: 0
-          }
-        },
-        tooltips: {
-          custom: function() {
-            return false;
-          }
         }
       },
       data: {
-        labels: new Array(12),
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
-          data: [0, 15, 10, 25, 30, 15, 40, 50, 80, 60, 55, 65]
+          label: 'Sales',
+          data: [25, 20, 30, 22, 17, 10, 18, 26, 28, 26, 20, 32]
+        }, {
+          label: 'Affiliate',
+          data: [15, 10, 20, 12, 7, 0, 8, 16, 18, 16, 10, 22],
+          backgroundColor: '#d2ddec',
+          hidden: true
         }]
       }
     });
-  };
-
-
-  //
-  // Events
-  //
-  
-  if (typeof Chart !== 'undefined' && charts) {
-    [].forEach.call(charts, function(el) {
-      init(el);
-    });
   }
-
 })();
 
-
 // Orders select
-//
-// Select all checkboxes
 
 (function() {
-
-  //
-  // Variables
-  //
-
   var ordersSelect = document.querySelectorAll('[name="ordersSelect"]');
   var ordersSelectAll = document.getElementById('ordersSelectAll');
 
-
-  //
-  // Functions
-  //
-
-  function selectAll(el) {
-    [].forEach.call(ordersSelect, function(checkbox) {
-      checkbox.checked = el.checked;
-    });
-  }
-
-
-  //
-  // Events
-  //
-
   if (ordersSelect && ordersSelectAll) {
     ordersSelectAll.addEventListener('change', function() {
-      selectAll(this);
+      var that = this;
+
+      [].forEach.call(ordersSelect, function(checkbox) {
+        checkbox.checked = that.checked;
+      });
     });
   }
-
 })();

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     @@include("partials/head.html", {
-      "title": "Dashkit"
+    "title": "Dashkit"
     })
   </head>
   <body>
@@ -14,27 +14,27 @@
     <!-- NAVIGATION
     ================================================== -->
     @@if (navPosition == 'sidenav' || navPosition == 'combo' || demoMode) {
-      @@if (sidebarSize == 'base' || demoMode) {
-        @@include("partials/sidebar.html", {
-          "category": "pages",
-          "subcategory": "team",
-          "page": "team-projects.html"
-        })
-      }
-      @@if (sidebarSize == 'small' || demoMode) {
-        @@include("partials/sidebar-sm.html", {
-          "category": "pages",
-          "subcategory": "team",
-          "page": "team-projects.html"
-        })
-      }
+    @@if (sidebarSize == 'base' || demoMode) {
+    @@include("partials/sidebar.html", {
+    "category": "pages",
+    "subcategory": "team",
+    "page": "team-projects.html"
+    })
+    }
+    @@if (sidebarSize == 'small' || demoMode) {
+    @@include("partials/sidebar-sm.html", {
+    "category": "pages",
+    "subcategory": "team",
+    "page": "team-projects.html"
+    })
+    }
     }
     @@if (navPosition == 'topnav' || demoMode) {
-      @@include("partials/topnav.html", {
-        "category": "pages",
-        "subcategory": "team",
-        "page": "team-projects.html"
-      })
+    @@include("partials/topnav.html", {
+    "category": "pages",
+    "subcategory": "team",
+    "page": "team-projects.html"
+    })
     }
 
     <!-- MAIN CONTENT
@@ -42,22 +42,22 @@
     <div class="main-content">
 
       @@if (navPosition == 'combo' || demoMode) {
-        @@include("partials/topbar.html")
+      @@include("partials/topbar.html")
       }
-      
+
       <!-- HEADER -->
       <div class="header">
 
         <!-- Image -->
         <img src="assets/img/covers/team-cover.jpg" class="header-img-top" alt="...">
-        
+
         <div class="@@if(navPosition=='sidenav'||navPosition=='combo'){container-fluid}@@if(navPosition=='topnav'){container}">
 
           <!-- Body -->
           <div class="header-body mt-n5 mt-md-n6">
             <div class="row align-items-end">
               <div class="col-auto">
-                
+
                 <!-- Avatar -->
                 <div class="avatar avatar-xxl header-avatar-top">
                   <img src="assets/img/avatars/teams/team-logo-1.jpg" alt="..." class="avatar-img rounded border border-4 border-body">
@@ -65,7 +65,7 @@
 
               </div>
               <div class="col mb-3 ml-n3 ml-md-n2">
-                
+
                 <!-- Pretitle -->
                 <h6 class="header-pretitle">
                   Groups
@@ -78,7 +78,7 @@
 
               </div>
               <div class="col-12 col-md-auto mt-2 mt-md-0 mb-md-3">
-                
+
                 <!-- Button -->
                 <a href="#!" class="btn btn-primary d-block d-md-inline-block lift">
                   Join
@@ -88,7 +88,7 @@
             </div> <!-- / .row -->
             <div class="row align-items-center">
               <div class="col">
-                
+
                 <!-- Nav -->
                 <ul class="nav nav-tabs nav-overflow header-tabs">
                   <li class="nav-item">
@@ -120,28 +120,33 @@
         </div>
 
       </div> <!-- / .header -->
-      
+
       <!-- CONTENT -->
       <div data-toggle="lists" data-options='{"valueNames": ["name"]}'>
         <div class="@@if(navPosition=='sidenav'||navPosition=='combo'){container-fluid}@@if(navPosition=='topnav'){container}" data-toggle="lists" data-options='{"valueNames": ["name"], "listClass": "listAlias"}'>
           <div class="row mb-4">
             <div class="col">
-              
+
               <!-- Form -->
               <form>
                 <div class="input-group input-group-lg input-group-merge">
+
+                  <!-- Input -->
                   <input type="text" class="form-control form-control-prepended search" placeholder="Search">
+
+                  <!-- Prepend -->
                   <div class="input-group-prepend">
                     <div class="input-group-text">
                       <span class="fe fe-search"></span>
                     </div>
                   </div>
+
                 </div>
               </form>
 
             </div>
             <div class="col-auto">
-              
+
               <!-- Navigation (button group) -->
               <div class="nav btn-group" role="tablist">
                 <button class="btn btn-lg btn-white active" data-toggle="tab" data-target="#tabPaneOne" role="tab" aria-controls="tabPaneOne" aria-selected="true">
@@ -163,15 +168,19 @@
 
                   <!-- Card -->
                   <div class="card">
+
+                    <!-- Image -->
                     <a href="project-overview.html">
                       <img src="assets/img/avatars/projects/project-1.jpg" alt="..." class="card-img-top">
                     </a>
+
+                    <!-- Body -->
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col">
-                      
+
                           <!-- Title -->
-                          <h4 class="card-title mb-2 name">
+                          <h4 class="mb-2 name">
                             <a href="project-overview.html">Homepage Redesign</a>
                           </h4>
 
@@ -182,7 +191,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -203,20 +212,21 @@
 
                         </div>
                       </div> <!-- / .row -->
+                    </div>
 
-                      <!-- Divider -->
-                      <hr>
-
+                    <!-- Footer -->
+                    <div class="card-footer card-footer-boxed">
                       <div class="row align-items-center">
                         <div class="col">
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">29%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar" role="progressbar" style="width: 29%" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100"></div>
@@ -226,7 +236,7 @@
                           </div> <!-- / .row -->
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -245,24 +255,27 @@
 
                         </div>
                       </div> <!-- / .row -->
-
-                    </div> <!-- / .card-body -->
+                    </div>
                   </div>
-                  
+
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
 
                   <!-- Card -->
                   <div class="card">
+
+                    <!-- Image -->
                     <a href="project-overview.html">
                       <img src="assets/img/avatars/projects/project-2.jpg" alt="..." class="card-img-top">
                     </a>
+
+                    <!-- Body -->
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col">
-                      
+
                           <!-- Title -->
-                          <h4 class="card-title mb-2 name">
+                          <h4 class="mb-2 name">
                             <a href="project-overview.html">Travels &amp; Time</a>
                           </h4>
 
@@ -273,7 +286,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -294,20 +307,21 @@
 
                         </div>
                       </div> <!-- / .row -->
+                    </div>
 
-                      <!-- Divider -->
-                      <hr>
-
+                    <!-- Footer-->
+                    <div class="card-footer card-footer-boxed">
                       <div class="row align-items-center">
                         <div class="col">
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">77%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar" role="progressbar" style="width: 77%" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"></div>
@@ -317,7 +331,7 @@
                           </div> <!-- / .row -->
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -336,24 +350,27 @@
 
                         </div>
                       </div> <!-- / .row -->
-
-                    </div> <!-- / .card-body -->
+                    </div>
                   </div>
-                  
+
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
 
                   <!-- Card -->
                   <div class="card">
+
+                    <!-- Image -->
                     <a href="project-overview.html">
                       <img src="assets/img/avatars/projects/project-3.jpg" alt="..." class="card-img-top">
                     </a>
+
+                    <!-- Body -->
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col">
-                      
+
                           <!-- Title -->
-                          <h4 class="card-title mb-2 name">
+                          <h4 class="mb-2 name">
                             <a href="project-overview.html">Safari Exploration</a>
                           </h4>
 
@@ -364,7 +381,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -385,20 +402,21 @@
 
                         </div>
                       </div> <!-- / .row -->
+                    </div>
 
-                      <!-- Divider -->
-                      <hr>
-
+                    <!-- Footer-->
+                    <div class="card-footer card-footer-boxed">
                       <div class="row align-items-center">
                         <div class="col">
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">100%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -408,7 +426,7 @@
                           </div> <!-- / .row -->
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -427,24 +445,27 @@
 
                         </div>
                       </div> <!-- / .row -->
-
-                    </div> <!-- / .card-body -->
+                    </div>
                   </div>
-                  
+
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
 
                   <!-- Card -->
                   <div class="card">
+
+                    <!-- Image -->
                     <a href="project-overview.html">
                       <img src="assets/img/avatars/projects/project-4.jpg" alt="..." class="card-img-top">
                     </a>
+
+                    <!-- Body -->
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col">
-                      
+
                           <!-- Title -->
-                          <h4 class="card-title mb-2 name">
+                          <h4 class="mb-2 name">
                             <a href="project-overview.html">Personal Site</a>
                           </h4>
 
@@ -455,7 +476,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -476,20 +497,21 @@
 
                         </div>
                       </div> <!-- / .row -->
+                    </div>
 
-                      <!-- Divider -->
-                      <hr>
-
+                    <!-- Footer-->
+                    <div class="card-footer card-footer-boxed">
                       <div class="row align-items-center">
                         <div class="col">
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">12%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 12%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
@@ -499,7 +521,7 @@
                           </div> <!-- / .row -->
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -518,24 +540,27 @@
 
                         </div>
                       </div> <!-- / .row -->
-
-                    </div> <!-- / .card-body -->
+                    </div>
                   </div>
-                  
+
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
 
                   <!-- Card -->
                   <div class="card">
+
+                    <!-- Image -->
                     <a href="project-overview.html">
                       <img src="assets/img/avatars/projects/project-5.jpg" alt="..." class="card-img-top">
                     </a>
+
+                    <!-- Body -->
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col">
-                      
+
                           <!-- Title -->
-                          <h4 class="card-title mb-2 name">
+                          <h4 class="mb-2 name">
                             <a href="project-overview.html">Wander (iOS)</a>
                           </h4>
 
@@ -546,7 +571,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -567,20 +592,21 @@
 
                         </div>
                       </div> <!-- / .row -->
+                    </div>
 
-                      <!-- Divider -->
-                      <hr>
-
+                    <!-- Footer-->
+                    <div class="card-footer card-footer-boxed">
                       <div class="row align-items-center">
                         <div class="col">
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">80%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
@@ -590,7 +616,7 @@
                           </div> <!-- / .row -->
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -609,24 +635,27 @@
 
                         </div>
                       </div> <!-- / .row -->
-
-                    </div> <!-- / .card-body -->
+                    </div>
                   </div>
-                  
+
                 </div>
                 <div class="col-12 col-md-6 col-xl-4">
 
                   <!-- Card -->
                   <div class="card">
+
+                    <!-- Image -->
                     <a href="project-overview.html">
                       <img src="assets/img/avatars/projects/project-6.jpg" alt="..." class="card-img-top">
                     </a>
+
+                    <!-- Body -->
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col">
-                      
+
                           <!-- Title -->
-                          <h4 class="card-title mb-2 name">
+                          <h4 class="mb-2 name">
                             <a href="project-overview.html">Wander (Web)</a>
                           </h4>
 
@@ -637,7 +666,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -658,20 +687,21 @@
 
                         </div>
                       </div> <!-- / .row -->
+                    </div>
 
-                      <!-- Divider -->
-                      <hr>
-
+                    <!-- Footer-->
+                    <div class="card-footer card-footer-boxed">
                       <div class="row align-items-center">
                         <div class="col">
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">65%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -681,7 +711,7 @@
                           </div> <!-- / .row -->
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -700,10 +730,9 @@
 
                         </div>
                       </div> <!-- / .row -->
-
-                    </div> <!-- / .card-body -->
+                    </div>
                   </div>
-                  
+
                 </div>
               </div> <!-- / .row -->
             </div>
@@ -715,7 +744,7 @@
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col-auto">
-                          
+
                           <!-- Avatar -->
                           <a href="project-overview.html" class="avatar avatar-lg avatar-4by3">
                             <img src="assets/img/avatars/projects/project-1.jpg" alt="..." class="avatar-img rounded">
@@ -725,7 +754,7 @@
                         <div class="col ml-n2">
 
                           <!-- Title -->
-                          <h4 class="card-title mb-1 name">
+                          <h4 class="mb-1 name">
                             <a href="project-overview.html">Homepage Redesign</a>
                           </h4>
 
@@ -738,11 +767,12 @@
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">29%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar" role="progressbar" style="width: 29%" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100"></div>
@@ -750,10 +780,10 @@
 
                             </div>
                           </div> <!-- / .row -->
-                          
+
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group d-none d-md-inline-flex">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -772,7 +802,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -803,7 +833,7 @@
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col-auto">
-                          
+
                           <!-- Avatar -->
                           <a href="project-overview.html" class="avatar avatar-lg avatar-4by3">
                             <img src="assets/img/avatars/projects/project-2.jpg" alt="..." class="avatar-img rounded">
@@ -813,7 +843,7 @@
                         <div class="col ml-n2">
 
                           <!-- Title -->
-                          <h4 class="card-title mb-1 name">
+                          <h4 class="mb-1 name">
                             <a href="project-overview.html">Travels &amp; Time</a>
                           </h4>
 
@@ -826,11 +856,12 @@
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">77%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar" role="progressbar" style="width: 77%" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"></div>
@@ -838,10 +869,10 @@
 
                             </div>
                           </div> <!-- / .row -->
-                          
+
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group d-none d-md-inline-flex">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -860,7 +891,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -891,7 +922,7 @@
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col-auto">
-                          
+
                           <!-- Avatar -->
                           <a href="project-overview.html" class="avatar avatar-lg avatar-4by3">
                             <img src="assets/img/avatars/projects/project-3.jpg" alt="..." class="avatar-img rounded">
@@ -901,7 +932,7 @@
                         <div class="col ml-n2">
 
                           <!-- Title -->
-                          <h4 class="card-title mb-1 name">
+                          <h4 class="mb-1 name">
                             <a href="project-overview.html">Safari Exploration</a>
                           </h4>
 
@@ -914,11 +945,12 @@
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">100%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -926,10 +958,10 @@
 
                             </div>
                           </div> <!-- / .row -->
-                          
+
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group d-none d-md-inline-flex">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -948,7 +980,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -979,7 +1011,7 @@
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col-auto">
-                          
+
                           <!-- Avatar -->
                           <a href="project-overview.html" class="avatar avatar-lg avatar-4by3">
                             <img src="assets/img/avatars/projects/project-4.jpg" alt="..." class="avatar-img rounded">
@@ -989,7 +1021,7 @@
                         <div class="col ml-n2">
 
                           <!-- Title -->
-                          <h4 class="card-title mb-1 name">
+                          <h4 class="mb-1 name">
                             <a href="project-overview.html">Personal Site</a>
                           </h4>
 
@@ -1002,11 +1034,12 @@
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">12%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 12%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
@@ -1014,10 +1047,10 @@
 
                             </div>
                           </div> <!-- / .row -->
-                          
+
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group d-none d-md-inline-flex">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -1036,7 +1069,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1067,7 +1100,7 @@
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col-auto">
-                          
+
                           <!-- Avatar -->
                           <a href="project-overview.html" class="avatar avatar-lg avatar-4by3">
                             <img src="assets/img/avatars/projects/project-5.jpg" alt="..." class="avatar-img rounded">
@@ -1077,7 +1110,7 @@
                         <div class="col ml-n2">
 
                           <!-- Title -->
-                          <h4 class="card-title mb-1 name">
+                          <h4 class="mb-1 name">
                             <a href="project-overview.html">Wander (iOS)</a>
                           </h4>
 
@@ -1090,11 +1123,12 @@
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">80%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
@@ -1102,10 +1136,10 @@
 
                             </div>
                           </div> <!-- / .row -->
-                          
+
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group d-none d-md-inline-flex">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -1124,7 +1158,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1155,7 +1189,7 @@
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col-auto">
-                          
+
                           <!-- Avatar -->
                           <a href="project-overview.html" class="avatar avatar-lg avatar-4by3">
                             <img src="assets/img/avatars/projects/project-6.jpg" alt="..." class="avatar-img rounded">
@@ -1165,7 +1199,7 @@
                         <div class="col ml-n2">
 
                           <!-- Title -->
-                          <h4 class="card-title mb-1 name">
+                          <h4 class="mb-1 name">
                             <a href="project-overview.html">Wander (Web)</a>
                           </h4>
 
@@ -1178,11 +1212,12 @@
                           <div class="row align-items-center no-gutters">
                             <div class="col-auto">
 
+                              <!-- Value -->
                               <div class="small mr-2">65%</div>
-                              
+
                             </div>
                             <div class="col">
-                              
+
                               <!-- Progress -->
                               <div class="progress progress-sm">
                                 <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -1190,10 +1225,10 @@
 
                             </div>
                           </div> <!-- / .row -->
-                          
+
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Avatar group -->
                           <div class="avatar-group d-none d-md-inline-flex">
                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
@@ -1212,7 +1247,7 @@
 
                         </div>
                         <div class="col-auto">
-                          
+
                           <!-- Dropdown -->
                           <div class="dropdown">
                             <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1235,9 +1270,9 @@
                       </div> <!-- / .row -->
                     </div> <!-- / .card-body -->
                   </div>
-                
+
                 </div>
-                
+
               </div> <!-- / .row -->
             </div>
           </div> <!-- / .tab-content -->
