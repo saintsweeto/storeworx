@@ -16,8 +16,8 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('type');
-            $table->date('date');
+            $table->enum('type', ['assets', 'jobs', 'movements']);
+            $table->string('requester');
             $table->json('assets');
             $table->json('fields');
             $table->timestamps();

@@ -2,82 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $jobs = Job::all();
+        return view('jobs', compact('jobs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Asset $asset)
     {
-        //
+        return view('jobs-create', compact('asset'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $job = new Job;
+        $job->asset_id = $request->asset_id;
+        $job->requester = $request->requester;
+        $job->date = date('Y-m-d', strtotime($request->date));
+        $job->from = $request->from;
+        $job->to = $request->to;
+        $job->quantity = $request->quantity;
+        $job->job_instructions = $request->job_instructions;
+        $job->site_contact_details = $request->site_contact_details;
+        $job->status = $request->action;
+        $job->save();
+
+        return redirect('/jobs');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
     public function show(Job $job)
     {
-        //
+        return view('jobs-create', compact('job'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Job $job)
     {
-        //
+        return view('jobs-edit', compact('job'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Job $job)
     {
-        //
+        $job = Job::find($job->id);
+        $job->asset_id = $request->asset_id;
+        $job->requester = $request->requester;
+        $job->date = date('Y-m-d', strtotime($request->date));
+        $job->from = $request->from;
+        $job->to = $request->to;
+        $job->quantity = $request->quantity;
+        $job->job_instructions = $request->job_instructions;
+        $job->site_contact_details = $request->site_contact_details;
+        $job->status = $request->action;
+        $job->save();
+
+        return redirect('/jobs');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Job $job)
     {
         //

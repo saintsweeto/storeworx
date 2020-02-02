@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateAssetsTable extends Migration
 {
@@ -28,6 +29,8 @@ class CreateAssetsTable extends Migration
             $table->integer('damaged');
             $table->timestamps();
         });
+
+        DB::update("ALTER TABLE assets AUTO_INCREMENT = 100;");
     }
 
     /**
