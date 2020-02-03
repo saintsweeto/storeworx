@@ -14,7 +14,7 @@
                                     <h1 class="header-title">Job Orders</h1>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="/jobs/create" class="btn btn-warning lift">New job</a>
+                                    <a href="/jobs/create" class="btn btn-warning lift disabled">New job</a>
                                 </div>
                             </div>
                             <div class="row align-items-center">
@@ -23,6 +23,11 @@
                                         <li class="nav-item">
                                             <a href="/jobs/all" class="nav-link active">
                                                 All <span class="badge badge-pill badge-soft-secondary">{{ count($jobs) }}</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/jobs/reserved" class="nav-link">
+                                                Reserved <span class="badge badge-pill badge-soft-secondary">0</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -113,7 +118,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="/jobs/show/{{ $job->id }}" class="btn btn-primary btn-sm">View</a>
+                                            <a href="/jobs/show/{{ $job->id }}" class="btn btn-primary btn-sm disabled">View</a>
                                             <a href="/jobs/edit/{{ $job->id }}" class="btn btn-outline-warning btn-sm" type="button">Edit</a>
                                         </td>
                                     </tr>

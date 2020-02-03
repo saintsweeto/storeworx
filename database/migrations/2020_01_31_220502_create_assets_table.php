@@ -23,10 +23,10 @@ class CreateAssetsTable extends Migration
             $table->text('dimensions');
             $table->text('finishes');
             $table->text('location');
-            $table->integer('quantity');
-            $table->integer('available');
-            $table->integer('reserved');
-            $table->integer('damaged');
+            $table->integer('quantity')->default(0);
+            $table->integer('available')->default(0);
+            $table->integer('reserved')->default(0);
+            $table->integer('damaged')->default(0);
             $table->timestamps();
         });
 

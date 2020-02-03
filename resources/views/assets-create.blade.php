@@ -17,27 +17,29 @@
                         </div>
                     </div>
 
-                    <form class="mb-4">
+                    <form class="mb-4" method="POST" action="/assets/store" autocomplete="off">
+                        @csrf
                         <div class="form-group">
                             <label>Item name</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="name">
                         </div>
                         <div class="form-group">
                             <label class="mb-1">Item description</label>
                             <small class="form-text text-muted">This is how others will learn about the item, so make it good!</small>
-                            <div data-toggle="quill"></div>
+{{--                            <div data-toggle="quill"></div>--}}
+                            <textarea name="description" class="form-control" rows="5"></textarea>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label>Item Type / Code</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="code">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label>Item SKU</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="sku">
                                 </div>
                             </div>
                         </div>
@@ -66,19 +68,19 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label>Dimensions</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="dimensions">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label>Finishes</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="finishes">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label>Location</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="location">
                                 </div>
                             </div>
                         </div>
@@ -98,13 +100,13 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input type="text" class="form-control">
+                                            <input type="number" class="form-control" name="quantity">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>Damaged</label>
-                                            <input type="text" class="form-control">
+                                            <input type="number" class="form-control" name="damaged">
                                         </div>
                                     </div>
                                 </div>
@@ -143,6 +145,6 @@
             else {
                 initialValuesRow.style.display = 'none';
             }
-        })
+        });
     </script>
 @endsection

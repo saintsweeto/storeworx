@@ -21,7 +21,20 @@ class AssetController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $asset = new Asset;
+        $asset->name = $request->name;
+        $asset->description = $request->description;
+        $asset->code = $request->code;
+        $asset->sku = $request->sku;
+        $asset->dimensions = $request->dimensions;
+        $asset->finishes = $request->finishes;
+        $asset->location = $request->location;
+        $asset->quantity = $request->quantity ?? 0;
+        $asset->available = $request->quantity ?? 0;
+        $asset->damaged = $request->damaged ?? 0;
+        $asset->save();
+
+        return redirect('/assets');
     }
 
     public function show(Asset $asset)
