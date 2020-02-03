@@ -18,8 +18,8 @@ class CreateReportsTable extends Migration
             $table->string('name');
             $table->enum('type', ['assets', 'jobs', 'movements']);
             $table->string('requester');
-            $table->json('assets');
-            $table->json('fields');
+            $table->json('assets')->nullable();
+            $table->json('fields')->nullable();
             $table->timestamps();
         });
     }
