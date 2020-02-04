@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/dashkit/src/assets/fonts/feather/feather.css">
     @yield('plugins')
 </head>
-<body>
+<body class="{{ $bodyClass ?? '' }}">
     @yield('content')
     @yield('scripts')
 </body>

@@ -155,6 +155,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        <a href="/assets/edit/{{ $asset->id }}" class="btn btn-outline-warning">Edit asset</a>
                         <a href="/jobs/create/{{ $asset->id }}" class="btn btn-warning">Create job</a>
                     </div>
                 </div>

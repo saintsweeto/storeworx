@@ -21,25 +21,45 @@
                         @csrf
                         <div class="form-group">
                             <label>Item name</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name">
+                            @error('name')
+                            <div class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label class="mb-1">Item description</label>
                             <small class="form-text text-muted">This is how others will learn about the item, so make it good!</small>
-{{--                            <div data-toggle="quill"></div>--}}
-                            <textarea name="description" class="form-control" rows="5"></textarea>
+                            {{--                            <div data-toggle="quill"></div>--}}
+                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="5"></textarea>
+                            @error('description')
+                            <div class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @enderror
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label>Item Type / Code</label>
-                                    <input type="text" class="form-control" name="code">
+                                    <input type="text" class="form-control @error('code') is-invalid @enderror" name="code">
+                                    @error('code')
+                                    <div class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label>Item SKU</label>
-                                    <input type="text" class="form-control" name="sku">
+                                    <input type="text" class="form-control @error('sku') is-invalid @enderror" name="sku">
+                                    @error('sku')
+                                    <div class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -80,7 +100,12 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label>Location</label>
-                                    <input type="text" class="form-control" name="location">
+                                    <input type="text" class="form-control @error('location') is-invalid @enderror" name="location">
+                                    @error('location')
+                                    <div class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -90,7 +115,7 @@
                                     <label class="mb-1">Define Initial Values</label>
                                     <small class="form-text text-muted">If you know the initial values of this item, you can define it now</small>
                                     <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input" id="switch-define-value">
+                                        <input type="checkbox" class="custom-control-input" id="switch-define-value">
                                         <label class="custom-control-label" for="switch-define-value"></label>
                                     </div>
                                 </div>

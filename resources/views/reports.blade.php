@@ -109,7 +109,12 @@
                                                 <div class="col-12 col-md-12">
                                                     <div class="form-group">
                                                         <label>Report name</label>
-                                                        <input type="text" class="form-control" name="name">
+                                                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name">
+                                                        @error('name')
+                                                        <div class="invalid-feedback">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6">
@@ -124,13 +129,26 @@
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
                                                         <label>Requester</label>
-                                                        <input type="text" class="form-control" name="requester">
+                                                        <input type="text" class="form-control @error('requester') is-invalid @enderror" name="requester">
+                                                        @error('requester')
+                                                        <div class="invalid-feedback">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-12">
-                                                    <a href="#" class="text-danger">
-                                                        <i class="fe fe-plus-circle"></i> Click to add more assets
-                                                    </a>
+                                                    <label>Included Assets</label>
+                                                    <select class="form-control @error('included_assets') is-invalid @enderror" name="included_assets" data-toggle="select" multiple>
+                                                        @foreach($assets as $asset)
+                                                            <option value="{{ $asset->id }}">{{ $asset->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('included_assets')
+                                                    <div class="invalid-feedback">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <hr class="mt-3">
@@ -158,4 +176,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="/dashkit/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/dashkit/node_modules/select2/dist/js/select2.full.min.js"></script>
+    <script src="/dashkit/src/assets/js/select2.js"></script>
 @endsection

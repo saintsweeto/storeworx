@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
 use App\Models\Report;
 use Illuminate\Http\Request;
 
@@ -10,10 +11,12 @@ class ReportController extends Controller
     public function index()
     {
         $reports = Report::all();
+        $assets = Asset::all();
         $fields = Report::FIELDS;
 
         return view('reports', [
             'reports' => $reports,
+            'assets' => $assets,
             'fields' => $fields,
         ]);
     }
@@ -25,11 +28,17 @@ class ReportController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'requester' => 'required',
+            'included_assets' => 'required',
+        ]);
+
         $report = new Report();
         $report->name = $request->name;
         $report->type = $request->type;
         $report->requester = $request->requester;
-        $report->assets = json_encode($request->assets);
+        $report->included_assets = json_encode($request->included_assets);
         $report->fields = json_encode($request->fields);
         $report->save();
 

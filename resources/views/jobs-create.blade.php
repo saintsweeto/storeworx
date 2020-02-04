@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Requester Name</label>
+                                            <label>Requester</label>
                                             <input type="text" class="form-control" name="requester">
                                         </div>
                                     </div>
