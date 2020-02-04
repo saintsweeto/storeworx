@@ -17,11 +17,12 @@
                         </div>
                     </div>
 
-                    <form class="mb-4" method="POST" action="/assets/store" autocomplete="off">
+                    <form class="mb-4" method="POST" action="/assets/update/{{ $asset->id }}" autocomplete="off">
+                        @method('PUT')
                         @csrf
                         <div class="form-group">
                             <label>Item name</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $asset->name }}">
                             @error('name')
                             <div class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
@@ -32,7 +33,7 @@
                             <label class="mb-1">Item description</label>
                             <small class="form-text text-muted">This is how others will learn about the item, so make it good!</small>
                             {{--                            <div data-toggle="quill"></div>--}}
-                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="5"></textarea>
+                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="5">{{ $asset->description }}</textarea>
                             @error('description')
                             <div class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
@@ -43,7 +44,7 @@
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label>Item Type / Code</label>
-                                    <input type="text" class="form-control @error('code') is-invalid @enderror" name="code">
+                                    <input type="text" class="form-control @error('code') is-invalid @enderror" name="code" value="{{ $asset->code }}">
                                     @error('code')
                                     <div class="invalid-feedback">
                                         <strong>{{ $message }}</strong>
@@ -54,7 +55,7 @@
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label>Item SKU</label>
-                                    <input type="text" class="form-control @error('sku') is-invalid @enderror" name="sku">
+                                    <input type="text" class="form-control @error('sku') is-invalid @enderror" name="sku" value="{{ $asset->sku }}">
                                     @error('sku')
                                     <div class="invalid-feedback">
                                         <strong>{{ $message }}</strong>
@@ -88,19 +89,19 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label>Dimensions</label>
-                                    <input type="text" class="form-control" name="dimensions">
+                                    <input type="text" class="form-control" name="dimensions" value="{{ $asset->dimensions }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label>Finishes</label>
-                                    <input type="text" class="form-control" name="finishes">
+                                    <input type="text" class="form-control" name="finishes" value="{{ $asset->finishes }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label>Location</label>
-                                    <input type="text" class="form-control @error('location') is-invalid @enderror" name="location">
+                                    <input type="text" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ $asset->location }}">
                                     @error('location')
                                     <div class="invalid-feedback">
                                         <strong>{{ $message }}</strong>
@@ -109,37 +110,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                    <label class="mb-1">Define Initial Values</label>
-                                    <small class="form-text text-muted">If you know the initial values of this item, you can define it now</small>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="switch-define-value">
-                                        <label class="custom-control-label" for="switch-define-value"></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="row" id="row-initial-values" style="display: none;">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label>Quantity</label>
-                                            <input type="number" class="form-control" name="quantity">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label>Damaged</label>
-                                            <input type="number" class="form-control" name="damaged">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <hr class="mt-5 mb-5">
-                        <button type="submit" class="btn btn-block btn-warning">Create asset</button>
-                        <a href="/assets" class="btn btn-block btn-link text-muted">Cancel creating this asset</a>
+                        <button type="submit" class="btn btn-block btn-warning">Update asset</button>
+                        <a href="/assets" class="btn btn-block btn-link text-muted">Cancel update this asset</a>
                     </form>
                 </div>
             </div>
@@ -160,16 +133,4 @@
     <script src="/dashkit/src/assets/js/flatpickr.js"></script>
     <script src="/dashkit/src/assets/js/dropzone.js"></script>
     <script src="/dashkit/src/assets/js/quill.js"></script>
-    <script>
-        const initialValuesRow = document.querySelector('#row-initial-values');
-        const defineSwitch = document.querySelector('#switch-define-value');
-        defineSwitch.addEventListener('change', function (e) {
-            if(e.target.checked) {
-                initialValuesRow.style.display = 'block';
-            }
-            else {
-                initialValuesRow.style.display = 'none';
-            }
-        });
-    </script>
 @endsection

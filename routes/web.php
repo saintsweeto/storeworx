@@ -25,6 +25,8 @@ Route::get('/assets', 'AssetController@index');
 Route::get('/assets/create', 'AssetController@create');
 Route::post('/assets/store', 'AssetController@store');
 Route::get('/assets/show/{asset}', 'AssetController@show');
+Route::get('/assets/edit/{asset}', 'AssetController@edit');
+Route::put('/assets/update/{asset}', 'AssetController@update');
 
 Route::get('/jobs', 'JobController@index');
 Route::get('/jobs/create/{asset}', 'JobController@create');
