@@ -18,6 +18,8 @@ class CreateReportsTable extends Migration
             $table->string('name');
             $table->enum('type', ['assets', 'jobs', 'movements']);
             $table->string('requester');
+            $table->text('assets')->nullable();
+            $table->text('fields')->nullable();
             $table->timestamps();
         });
     }
