@@ -67,7 +67,12 @@
                         <a href="/profile" class="dropdown-item">Profile</a>
                         <a href="/settings" class="dropdown-item">Settings</a>
                         <hr class="dropdown-divider">
-                        <a href="/logout" class="dropdown-item">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                 </div>
                 <a href="#sidebar-modal-search" class="navbar-user-link" data-toggle="modal">
