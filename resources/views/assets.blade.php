@@ -167,63 +167,63 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="list-group list-group-flush list-group-activity my-n3">
-                                                    <div class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="avatar avatar-sm">
-                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">
-                                                                        <i class="fe fe-truck"></i>
+                                                    @foreach($asset->activities as $activity)
+                                                        <div class="list-group-item">
+                                                            <div class="row">
+                                                                <div class="col-auto">
+                                                                    <div class="avatar avatar-sm textwa">
+                                                                        <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">
+                                                                            <i class="fe {{ $activity->icon }}"></i>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col ml-n2">
-                                                                <p class="small text-gray-700 mb-0">
-                                                                    Sinead Bowie added <b class="text-dark">10</b> clean quantity with <b class="text-dark">0</b> damaged quantity
-                                                                </p>
-                                                                <small class="text-muted">
-                                                                    2m ago
-                                                                </small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="avatar avatar-sm">
-                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">
-                                                                        <i class="fe fe-edit-2"></i>
-                                                                    </div>
+                                                                <div class="col ml-n2">
+                                                                    {!! $activity->description !!}
+                                                                    <small class="text-muted">
+                                                                        2m ago
+                                                                    </small>
                                                                 </div>
                                                             </div>
-                                                            <div class="col ml-n2">
-                                                                <p class="small text-gray-700 mb-0">
-                                                                    Sinead Bowie created a new job <a href="#">100259</a>
-                                                                </p>
-                                                                <small class="text-muted">
-                                                                    16 ago
-                                                                </small>
-                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="avatar avatar-sm">
-                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">
-                                                                        <i class="fe fe-truck"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col ml-n2">
-                                                                <p class="small text-gray-700 mb-0">
-                                                                    John Brown added <b class="text-dark">5</b> clean quantity with <b class="text-dark">3</b> damaged quantity
-                                                                </p>
-                                                                <small class="text-muted">
-                                                                    1h ago
-                                                                </small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    @endforeach
+{{--                                                    <div class="list-group-item">--}}
+{{--                                                        <div class="row">--}}
+{{--                                                            <div class="col-auto">--}}
+{{--                                                                <div class="avatar avatar-sm">--}}
+{{--                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">--}}
+{{--                                                                        <i class="fe fe-edit-2"></i>--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                            <div class="col ml-n2">--}}
+{{--                                                                <p class="small text-gray-700 mb-0">--}}
+{{--                                                                    Sinead Bowie created a new job <a href="#">100259</a>--}}
+{{--                                                                </p>--}}
+{{--                                                                <small class="text-muted">--}}
+{{--                                                                    16 ago--}}
+{{--                                                                </small>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="list-group-item">--}}
+{{--                                                        <div class="row">--}}
+{{--                                                            <div class="col-auto">--}}
+{{--                                                                <div class="avatar avatar-sm">--}}
+{{--                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">--}}
+{{--                                                                        <i class="fe fe-truck"></i>--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                            <div class="col ml-n2">--}}
+{{--                                                                <p class="small text-gray-700 mb-0">--}}
+{{--                                                                    John Brown added <b class="text-dark">5</b> clean quantity with <b class="text-dark">3</b> damaged quantity--}}
+{{--                                                                </p>--}}
+{{--                                                                <small class="text-muted">--}}
+{{--                                                                    1h ago--}}
+{{--                                                                </small>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
                                                 </div>
                                             </div>
                                         </div>

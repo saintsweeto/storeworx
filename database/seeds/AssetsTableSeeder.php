@@ -51,7 +51,7 @@ class AssetsTableSeeder extends Seeder
                 'available' => 0,
                 'reserved' => 15,
                 'damaged' => 5,
-            ]
+            ],
         ];
 
         DB::table('assets')->insert($assets);
