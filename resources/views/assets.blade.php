@@ -104,7 +104,36 @@
                     <div class="modal-body">
                         <div class="row m-3">
                             <div class="col-12 col-md-5">
-                                <img src="/img/placeholder.png" alt="asset-img" class="img-fluid rounded mb-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img src="/img/placeholder.png" alt="asset-img" class="img-fluid rounded mb-3">
+                                    </div>
+                                    <div class="col-12">
+                                        <hr class="navbar-divider">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <b>Description</b>
+                                                <p class="text-muted">{{ $asset->description }}</p>
+                                            </div>
+                                            <div class="col-12">
+                                                <b>Code</b>
+                                                <p class="text-muted">{{ $asset->code }}</p>
+                                            </div>
+                                            <div class="col-12">
+                                                <b>Dimensions</b>
+                                                <p class="text-muted">{{ $asset->dimensions }}</p>
+                                            </div>
+                                            <div class="col-12">
+                                                <b>Finishes</b>
+                                                <p class="text-muted">{{ $asset->finishes }}</p>
+                                            </div>
+                                            <div class="col-12">
+                                                <b>Location</b>
+                                                <p class="text-muted">{{ $asset->location }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12 col-md-7">
                                 <div class="row">
@@ -127,27 +156,77 @@
                                         <h3><span class="text-danger">{{ $asset->damaged }}</span> <span>Damaged</span></h3>
                                     </div>
                                 </div>
-                                <hr class="navbar-divider">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <b>Description</b>
-                                        <p class="text-muted">{{ $asset->description }}</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <b>Code</b>
-                                        <p class="text-muted">{{ $asset->code }}</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <b>Dimensions</b>
-                                        <p class="text-muted">{{ $asset->dimensions }}</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <b>Finishes</b>
-                                        <p class="text-muted">{{ $asset->finishes }}</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <b>Location</b>
-                                        <p class="text-muted">{{ $asset->location }}</p>
+                                <div class="row mt-4">
+                                    <div class="container">
+                                        <div class="card card-fill">
+                                            <div class="card-header">
+                                                <h4 class="card-header-title">
+                                                    Recent Activity
+                                                </h4>
+                                                <a class="small" href="#">View all</a>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="list-group list-group-flush list-group-activity my-n3">
+                                                    <div class="list-group-item">
+                                                        <div class="row">
+                                                            <div class="col-auto">
+                                                                <div class="avatar avatar-sm">
+                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">
+                                                                        <i class="fe fe-truck"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col ml-n2">
+                                                                <p class="small text-gray-700 mb-0">
+                                                                    Sinead Bowie added <b class="text-dark">10</b> clean quantity with <b class="text-dark">0</b> damaged quantity
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    2m ago
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-group-item">
+                                                        <div class="row">
+                                                            <div class="col-auto">
+                                                                <div class="avatar avatar-sm">
+                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">
+                                                                        <i class="fe fe-edit-2"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col ml-n2">
+                                                                <p class="small text-gray-700 mb-0">
+                                                                    Sinead Bowie created a new job <a href="#">100259</a>
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    16 ago
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-group-item">
+                                                        <div class="row">
+                                                            <div class="col-auto">
+                                                                <div class="avatar avatar-sm">
+                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">
+                                                                        <i class="fe fe-truck"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col ml-n2">
+                                                                <p class="small text-gray-700 mb-0">
+                                                                    John Brown added <b class="text-dark">5</b> clean quantity with <b class="text-dark">3</b> damaged quantity
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    1h ago
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +234,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                        <a href="/assets/edit/{{ $asset->id }}" class="btn btn-outline-warning">Edit asset</a>
                         <a href="/jobs/create/{{ $asset->id }}" class="btn btn-warning">Create job</a>
                     </div>
                 </div>
