@@ -139,7 +139,7 @@
                                                 </div>
                                                 <div class="col-12 col-md-12">
                                                     <label>Included Assets</label>
-                                                    <select class="form-control @error('included_assets') is-invalid @enderror" name="included_assets" data-toggle="select" multiple>
+                                                    <select class="form-control @error('included_assets') is-invalid @enderror" name="included_assets[]" data-toggle="select" multiple>
                                                         @foreach($assets as $asset)
                                                             <option value="{{ $asset->id }}">{{ $asset->name }}</option>
                                                         @endforeach
