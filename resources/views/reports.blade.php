@@ -61,13 +61,7 @@
                                                 @foreach($reports as $report)
                                                     <tr>
                                                         <td><span>{{ $report->name }} </span></td>
-                                                        <td>
-                                                            @if($report->type === 'assets')
-                                                                <span class="badge badge-danger">MOVEMENTS</span>
-                                                            @elseif($report->type === 'jobs')
-                                                                <span class="badge badge-primary">JOBS</span>
-                                                            @endif
-                                                        </td>
+                                                        <td><span class="badge badge-dark">{{ strtoupper($report->type) }}</span>
                                                         <td>
                                                             <div class="avatar avatar-xs d-inline-block mr-2">
                                                                 <img src="/img/user.png" alt="avatar-img" class="avatar-img rounded-circle">
@@ -121,8 +115,9 @@
                                                     <div class="form-group">
                                                         <label>Report Type</label>
                                                         <select class="form-control" name="type">
-                                                            <option>Assets</option>
-                                                            <option>Jobs</option>
+                                                            <option value="assets">Assets</option>
+                                                            <option value="jobs">Jobs</option>
+                                                            <option value="movements">Movements</option>
                                                         </select>
                                                     </div>
                                                 </div>

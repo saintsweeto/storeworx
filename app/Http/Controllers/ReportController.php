@@ -47,7 +47,19 @@ class ReportController extends Controller
 
     public function show(Report $report)
     {
-        //
+        $fields = array_map(function ($field_id) {
+            return Report::FIELDS[$field_id];
+        }, string_to_array($report->fields));
+
+        $assets = array_map(function (int $asset_id) {
+            return Asset::find($asset_id);
+        }, string_to_array($report->included_assets));
+
+        return view('reports-show', [
+            'report' => $report,
+            'assets' => $assets,
+            'fields' => $fields,
+        ]);
     }
 
     public function edit(Report $report)
