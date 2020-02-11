@@ -3,7 +3,7 @@
 @section('content')
     @include('layouts.navigation')
     <div class="main-content">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 col-xl-8">
                     <div class="header mt-md-5">
@@ -31,7 +31,6 @@
                         <div class="form-group">
                             <label class="mb-1">Item description</label>
                             <small class="form-text text-muted">This is how others will learn about the item, so make it good!</small>
-                            {{--                            <div data-toggle="quill"></div>--}}
                             <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="5"></textarea>
                             @error('description')
                             <div class="invalid-feedback">
@@ -138,8 +137,8 @@
                             </div>
                         </div>
                         <hr class="mt-5 mb-5">
-                        <button type="submit" class="btn btn-block btn-warning">Create asset</button>
-                        <a href="/assets" class="btn btn-block btn-link text-muted">Cancel creating this asset</a>
+                        <button type="submit" class="btn btn-block btn-warning">Create item</button>
+                        <a href="/assets" class="btn btn-block btn-link text-muted">Cancel creating this item</a>
                     </form>
                 </div>
             </div>
