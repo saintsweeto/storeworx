@@ -49,7 +49,7 @@ class JobController extends Controller
         return view('jobs-edit', compact('job'));
     }
 
-    public function update(Request $request, Job $job)
+    public function update(JobRequest $request, Job $job)
     {
         $job = Job::find($job->id);
         $job->asset_id = $request->asset_id;

@@ -186,44 +186,6 @@
                                                             </div>
                                                         </div>
                                                     @endforeach
-{{--                                                    <div class="list-group-item">--}}
-{{--                                                        <div class="row">--}}
-{{--                                                            <div class="col-auto">--}}
-{{--                                                                <div class="avatar avatar-sm">--}}
-{{--                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">--}}
-{{--                                                                        <i class="fe fe-edit-2"></i>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                            <div class="col ml-n2">--}}
-{{--                                                                <p class="small text-gray-700 mb-0">--}}
-{{--                                                                    Sinead Bowie created a new job <a href="#">100259</a>--}}
-{{--                                                                </p>--}}
-{{--                                                                <small class="text-muted">--}}
-{{--                                                                    16 ago--}}
-{{--                                                                </small>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="list-group-item">--}}
-{{--                                                        <div class="row">--}}
-{{--                                                            <div class="col-auto">--}}
-{{--                                                                <div class="avatar avatar-sm">--}}
-{{--                                                                    <div class="avatar-title font-size-lg bg-primary-soft rounded-circle text-primary">--}}
-{{--                                                                        <i class="fe fe-truck"></i>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                            <div class="col ml-n2">--}}
-{{--                                                                <p class="small text-gray-700 mb-0">--}}
-{{--                                                                    John Brown added <b class="text-dark">5</b> clean quantity with <b class="text-dark">3</b> damaged quantity--}}
-{{--                                                                </p>--}}
-{{--                                                                <small class="text-muted">--}}
-{{--                                                                    1h ago--}}
-{{--                                                                </small>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
                                                 </div>
                                             </div>
                                         </div>
@@ -234,6 +196,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        <a href="/assets/edit/{{ $asset->id }}" class="btn btn-outline-danger">Edit asset</a>
                         <a href="/jobs/create/{{ $asset->id }}" class="btn btn-warning">Create job</a>
                     </div>
                 </div>
