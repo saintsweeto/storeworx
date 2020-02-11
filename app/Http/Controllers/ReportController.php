@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReportRequest;
 use App\Models\Asset;
 use App\Models\Report;
 use Illuminate\Http\Request;
@@ -26,20 +27,16 @@ class ReportController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(ReportRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'requester' => 'required',
-            'included_assets' => 'required',
-        ]);
+        $validated = $request->validated();
 
         $report = new Report();
-        $report->name = $request->name;
-        $report->type = $request->type;
-        $report->requester = $request->requester;
-        $report->included_assets = json_encode($request->included_assets);
-        $report->fields = json_encode($request->fields);
+        $report->name = $validated['name'];
+        $report->type = $validated['type'];
+        $report->requester = $validated['requester'];
+        $report->included_assets = json_encode($validated['included_assets']);
+        $report->fields = json_encode($request['fields']);
         $report->save();
 
         return redirect('/reports');

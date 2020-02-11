@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AssetRequest;
 use App\Models\Asset;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class AssetController extends Controller
 {
@@ -19,27 +18,21 @@ class AssetController extends Controller
         return view('assets-create');
     }
 
-    public function store(Request $request)
+    public function store(AssetRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'code' => 'required',
-            'sku' => 'required',
-            'location' => 'required',
-        ]);
+        $validated = $request->validated();
 
         $asset = new Asset;
-        $asset->name = $request->name;
-        $asset->description = $request->description;
-        $asset->code = $request->code;
-        $asset->sku = $request->sku;
-        $asset->dimensions = $request->dimensions;
-        $asset->finishes = $request->finishes;
-        $asset->location = $request->location;
-        $asset->quantity = $request->quantity ?? 0;
-        $asset->available = $request->quantity ?? 0;
-        $asset->damaged = $request->damaged ?? 0;
+        $asset->name = $validated['name'];
+        $asset->description = $validated['description'];
+        $asset->code = $validated['code'];
+        $asset->sku = $validated['sku'];
+        $asset->dimensions = $validated['dimensions'];
+        $asset->finishes = $validated['finishes'];
+        $asset->location = $validated['location'];
+        $asset->quantity = $validated['quantity'] ?? 0;
+        $asset->available = $validated['available'] ?? 0;
+        $asset->damaged = $validated['damaged'] ?? 0;
         $asset->save();
 
         return redirect('/assets');
@@ -55,27 +48,21 @@ class AssetController extends Controller
         return view('assets-edit', compact('asset'));
     }
 
-    public function update(Request $request, Asset $asset)
+    public function update(AssetRequest $request, Asset $asset)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'code' => 'required',
-            'sku' => 'required',
-            'location' => 'required',
-        ]);
+        $validated = $request->validated();
 
         $asset = Asset::find($asset->id);
-        $asset->name = $request->name;
-        $asset->description = $request->description;
-        $asset->code = $request->code;
-        $asset->sku = $request->sku;
-        $asset->dimensions = $request->dimensions;
-        $asset->finishes = $request->finishes;
-        $asset->location = $request->location;
-        $asset->quantity = $request->quantity ?? 0;
-        $asset->available = $request->quantity ?? 0;
-        $asset->damaged = $request->damaged ?? 0;
+        $asset->name = $validated['name'];
+        $asset->description = $validated['description'];
+        $asset->code = $validated['code'];
+        $asset->sku = $validated['sku'];
+        $asset->dimensions = $validated['dimensions'];
+        $asset->finishes = $validated['finishes'];
+        $asset->location = $validated['location'];
+        $asset->quantity = $validated['quantity'] ?? 0;
+        $asset->available = $validated['available'] ?? 0;
+        $asset->damaged = $validated['damaged'] ?? 0;
         $asset->save();
 
         return redirect('/assets');
