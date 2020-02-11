@@ -31,7 +31,7 @@ class ReportController extends Controller
     {
         $validated = $request->validated();
 
-        $report = new Report();
+        $report = new Report;
         $report->name = $validated['name'];
         $report->type = $validated['type'];
         $report->requester = $validated['requester'];

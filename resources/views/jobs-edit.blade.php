@@ -12,6 +12,7 @@
                                 <div class="col">
                                     <h6 class="header-pretitle">Edit Job # {{ $job->id }}</h6>
                                     <h1 class="header-title">{{ $job->asset->name }}</h1>
+                                    <span class="text-muted">{{ $job->asset->description }}</span
                                 </div>
                             </div>
                         </div>
@@ -26,7 +27,6 @@
                                 <p class="text-center mb-3">
                                     <img src="/img/placeholder.png" alt="asset-img" class="img-fluid rounded">
                                 </p>
-                                <p>Description: <span class="text-muted">{{ $job->asset->description }}</span></p>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="row">

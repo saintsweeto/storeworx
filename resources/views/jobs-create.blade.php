@@ -43,41 +43,66 @@
                                                    data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-8">
+                                    <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Item Dimensions</label>
                                             <input type="text" class="form-control" value="{{ $asset->dimensions }}"
                                                    data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-4">
+                                    <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input type="number" class="form-control" name="quantity">
+                                            <input type="number" class="form-control @error('quantity') is-invalid @enderror" name="quantity">
+                                            @error('quantity')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Requester</label>
-                                            <input type="text" class="form-control" name="requester">
+                                            <input type="text" class="form-control @error('requester') is-invalid @enderror" name="requester">
+                                            @error('requester')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Date of Job</label>
-                                            <input type="text" class="form-control" name="date" data-toggle="flatpickr" data-options='{"dateFormat": "d M Y"}'>
+                                            <input type="text" class="form-control @error('date') is-invalid @enderror" name="date" data-toggle="flatpickr" data-options='{"dateFormat": "d M Y"}'>
+                                            @error('date')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-12">
                                         <div class="form-group">
                                             <label>From Location</label>
-                                            <input type="text" class="form-control" name="from">
+                                            <input type="text" class="form-control @error('from') is-invalid @enderror" name="from">
+                                            @error('from')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-12">
                                         <div class="form-group">
                                             <label>To Location</label>
-                                            <input type="text" class="form-control" name="to">
+                                            <input type="text" class="form-control @error('to') is-invalid @enderror" name="to">
+                                            @error('to')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
