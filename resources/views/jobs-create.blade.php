@@ -12,6 +12,7 @@
                                 <div class="col">
                                     <h6 class="header-pretitle">New Job</h6>
                                     <h1 class="header-title">{{ $asset->name }}</h1>
+                                    <span class="text-muted">{{ $asset->description }}</span>
                                 </div>
                             </div>
                         </div>
@@ -25,26 +26,28 @@
                                 <p class="text-center mb-3">
                                     <img src="/img/placeholder.png" alt="asset-img" class="img-fluid rounded">
                                 </p>
-                                <p>Description: <span class="text-muted">{{ $asset->description }}</span></p>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Item Type / Code</label>
-                                            <input type="text" class="form-control" placeholder="{{ $asset->code }}" readonly>
+                                            <input type="text" class="form-control" value="{{ $asset->code }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Item SKU</label>
-                                            <input type="text" class="form-control" placeholder="{{ $asset->sku }}" readonly>
+                                            <input type="text" class="form-control" value="{{ $asset->sku }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-8">
                                         <div class="form-group">
                                             <label>Item Dimensions</label>
-                                            <input type="text" class="form-control" placeholder="{{ $asset->dimensions }}" readonly>
+                                            <input type="text" class="form-control" value="{{ $asset->dimensions }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
@@ -124,6 +127,9 @@
 @endsection
 
 @section('scripts')
+    <script src="/dashkit/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/dashkit/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/dashkit/node_modules/flatpickr/dist/flatpickr.min.js"></script>
     <script src="/dashkit/src/assets/js/flatpickr.js"></script>
+    <script src="/dashkit/src/assets/js/tooltip.js"></script>
 @endsection

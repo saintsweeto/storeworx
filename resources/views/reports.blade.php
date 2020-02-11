@@ -61,7 +61,7 @@
                                                 @foreach($reports as $report)
                                                     <tr>
                                                         <td><span>{{ $report->name }} </span></td>
-                                                        <td><span class="badge badge-dark">{{ strtoupper($report->type) }}</span>
+                                                        <td><span class="badge badge-dark text-uppercase">{{ $report->type }}</span>
                                                         <td>
                                                             <div class="avatar avatar-xs d-inline-block mr-2">
                                                                 <img src="/img/user.png" alt="avatar-img" class="avatar-img rounded-circle">
@@ -114,7 +114,7 @@
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
                                                         <label>Report Type</label>
-                                                        <select class="form-control" name="type">
+                                                        <select class="form-control" name="type" data-toggle="select">
                                                             <option value="assets">Assets</option>
                                                             <option value="jobs">Jobs</option>
                                                             <option value="movements">Movements</option>

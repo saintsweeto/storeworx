@@ -46,7 +46,7 @@
                             <div class="col-12 col-md-6 text-md-right">
                                 <h6 class="text-uppercase text-muted">Report Type</h6>
                                 <p class="text-muted mb-4">
-                                    <strong class="text-body">{{ strtoupper($report->type) }}</strong>
+                                    <strong class="text-body text-uppercase">{{ $report->type }}</strong>
                                 </p>
                                 <h6 class="text-uppercase text-muted">Requester</h6>
                                 <p class="mb-4">{{ $report->requester }}</p>

@@ -39,6 +39,10 @@ Route::get('/jobs/show/{job}', 'JobController@show');
 Route::get('/jobs/edit/{job}', 'JobController@edit');
 Route::put('/jobs/update/{job}', 'JobController@update');
 
+Route::get('/movements', 'MovementController@index');
+Route::get('/movements/create/{type}/{asset}', 'MovementController@create');
+Route::post('/movements/store', 'MovementController@store');
+
 Route::get('/reports', 'ReportController@index');
 Route::post('/reports/store', 'ReportController@store');
 Route::get('/reports/show/{report}', 'ReportController@show');
