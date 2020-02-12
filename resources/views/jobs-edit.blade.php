@@ -12,6 +12,7 @@
                                 <div class="col">
                                     <h6 class="header-pretitle">Edit Job # {{ $job->id }}</h6>
                                     <h1 class="header-title">{{ $job->asset->name }}</h1>
+                                    <span class="text-muted">{{ $job->asset->description }}</span
                                 </div>
                             </div>
                         </div>
@@ -26,7 +27,6 @@
                                 <p class="text-center mb-3">
                                     <img src="/img/placeholder.png" alt="asset-img" class="img-fluid rounded">
                                 </p>
-                                <p>Description: <span class="text-muted">{{ $job->asset->description }}</span></p>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="row">
@@ -42,40 +42,65 @@
                                             <input type="text" class="form-control" placeholder="{{ $job->asset->sku }}" readonly>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-8">
+                                    <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Item Dimensions</label>
                                             <input type="text" class="form-control" placeholder="{{ $job->asset->dimensions }}" readonly>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-4">
+                                    <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input type="number" class="form-control" name="quantity" value="{{ $job->quantity }}">
+                                            <input type="number" class="form-control @error('quantity') is-invalid @enderror" name="quantity" value="{{ $job->quantity }}">
+                                            @error('quantity')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Requester</label>
-                                            <input type="text" class="form-control" name="requester" value="{{ $job->requester }}">
+                                            <input type="text" class="form-control @error('requester') is-invalid @enderror" name="requester" value="{{ $job->requester }}">
+                                            @error('requester')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Date of Job</label>
-                                            <input type="text" class="form-control" name="date" value="{{ date('d M Y', strtotime($job->date)) }}" data-toggle="flatpickr" data-options='{"dateFormat": "d M Y"}'>
+                                            <input type="text" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ date('d M Y', strtotime($job->date)) }}" data-toggle="flatpickr" data-options='{"dateFormat": "d M Y"}'>
+                                            @error('date')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-12">
                                         <div class="form-group">
                                             <label>From Location</label>
-                                            <input type="text" class="form-control" name="from" value="{{ $job->from }}">
+                                            <input type="text" class="form-control @error('from') is-invalid @enderror" name="from" value="{{ $job->from }}">
+                                            @error('from')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-12">
                                         <div class="form-group">
                                             <label>To Location</label>
-                                            <input type="text" class="form-control" name="to" value="{{ $job->to }}">
+                                            <input type="text" class="form-control @error('to') is-invalid @enderror" name="to" value="{{ $job->to }}">
+                                            @error('to')
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">

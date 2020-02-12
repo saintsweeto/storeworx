@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateReportsTable extends Migration
 {
@@ -22,6 +23,8 @@ class CreateReportsTable extends Migration
             $table->text('fields')->nullable();
             $table->timestamps();
         });
+
+        DB::update("ALTER TABLE reports AUTO_INCREMENT = 1000;");
     }
 
     /**

@@ -2,82 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MovementRequest;
+use App\Models\Asset;
 use App\Models\Movement;
 use Illuminate\Http\Request;
 
 class MovementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $assets = Asset::all();
+        $movements = Movement::all();
+
+        return view('movements', [
+            'assets' => $assets,
+            'movements' => $movements,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(string $type, Asset $asset)
     {
-        //
+        return view('movements-create', [
+            'type' => $type,
+            'asset' => $asset,
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(MovementRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $movement = new Movement;
+        $movement->asset_id = $validated['asset_id'];
+        $movement->type = $validated['type'];
+        $movement->job_no = $validated['job_no'];
+        $movement->from = $validated['from'];
+        $movement->to = $validated['to'];
+        $movement->quantity = $validated['quantity'];
+        $movement->damaged = $validated['damaged'];
+        $movement->po_no = $validated['po_no'];
+        $movement->comments = $request->comments;
+        $movement->bill_materials =  $request->bill_materials;
+        $movement->save();
+
+        return redirect('/movements');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Movement  $movement
-     * @return \Illuminate\Http\Response
-     */
     public function show(Movement $movement)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Movement  $movement
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Movement $movement)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Movement  $movement
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Movement $movement)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Movement  $movement
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Movement $movement)
     {
         //

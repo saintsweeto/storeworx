@@ -3,7 +3,7 @@
 @section('content')
     @include('layouts.navigation')
     <div class="main-content">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 col-xl-8">
                     <div class="header mt-md-5">

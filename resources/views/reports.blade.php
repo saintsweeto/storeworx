@@ -61,13 +61,7 @@
                                                 @foreach($reports as $report)
                                                     <tr>
                                                         <td><span>{{ $report->name }} </span></td>
-                                                        <td>
-                                                            @if($report->type === 'assets')
-                                                                <span class="badge badge-danger">MOVEMENTS</span>
-                                                            @elseif($report->type === 'jobs')
-                                                                <span class="badge badge-primary">JOBS</span>
-                                                            @endif
-                                                        </td>
+                                                        <td><span class="badge badge-dark text-uppercase">{{ $report->type }}</span>
                                                         <td>
                                                             <div class="avatar avatar-xs d-inline-block mr-2">
                                                                 <img src="/img/user.png" alt="avatar-img" class="avatar-img rounded-circle">
@@ -120,9 +114,10 @@
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
                                                         <label>Report Type</label>
-                                                        <select class="form-control" name="type">
-                                                            <option>Assets</option>
-                                                            <option>Jobs</option>
+                                                        <select class="form-control" name="type" data-toggle="select">
+                                                            <option value="assets">Assets</option>
+                                                            <option value="jobs">Jobs</option>
+                                                            <option value="movements">Movements</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -139,7 +134,7 @@
                                                 </div>
                                                 <div class="col-12 col-md-12">
                                                     <label>Included Assets</label>
-                                                    <select class="form-control @error('included_assets') is-invalid @enderror" name="included_assets" data-toggle="select" multiple>
+                                                    <select class="form-control @error('included_assets') is-invalid @enderror" name="included_assets[]" data-toggle="select" multiple>
                                                         @foreach($assets as $asset)
                                                             <option value="{{ $asset->id }}">{{ $asset->name }}</option>
                                                         @endforeach
