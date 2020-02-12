@@ -11,8 +11,13 @@ class MovementController extends Controller
 {
     public function index()
     {
+        $assets = Asset::all();
         $movements = Movement::all();
-        return view('movements', compact('movements'));
+
+        return view('movements', [
+            'assets' => $assets,
+            'movements' => $movements,
+        ]);
     }
 
     public function create(string $type, Asset $asset)
@@ -36,8 +41,8 @@ class MovementController extends Controller
         $movement->quantity = $validated['quantity'];
         $movement->damaged = $validated['damaged'];
         $movement->po_no = $validated['po_no'];
-        $movement->comments = $validated['comments'];
-        $movement->bill_materials = $validated['bill_materials'];
+        $movement->comments = $request->comments;
+        $movement->bill_materials =  $request->bill_materials;
         $movement->save();
 
         return redirect('/movements');

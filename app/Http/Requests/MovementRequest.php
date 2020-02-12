@@ -32,8 +32,6 @@ class MovementRequest extends FormRequest
             'quantity' => 'required',
             'damaged' => 'required',
             'po_no' => 'required',
-            'comments' => 'required',
-            'bill_materials' => 'required',
         ];
     }
 }

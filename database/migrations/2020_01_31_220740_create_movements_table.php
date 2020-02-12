@@ -23,8 +23,8 @@ class CreateMovementsTable extends Migration
             $table->integer('quantity')->default(0);
             $table->integer('damaged')->default(0);
             $table->string('po_no');
-            $table->text('comments');
-            $table->text('bill_materials');
+            $table->text('comments')->nullable();
+            $table->text('bill_materials')->nullable();
             $table->timestamps();
         });
     }
