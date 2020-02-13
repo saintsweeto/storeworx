@@ -148,14 +148,19 @@
 @endsection
 
 @section('plugins')
-    <link rel="stylesheet" href="/dashkit/node_modules/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="/dashkit/node_modules/quill/dist/quill.core.css">
+{{--    <link rel="stylesheet" href="/dashkit/node_modules/flatpickr/dist/flatpickr.min.css">--}}
+{{--    <link rel="stylesheet" href="/dashkit/node_modules/quill/dist/quill.core.css">--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.core.min.css">
 @endsection
 
 @section('scripts')
-    <script src="/dashkit/node_modules/flatpickr/dist/flatpickr.min.js"></script>
-    <script src="/dashkit/node_modules/dropzone/dist/min/dropzone.min.js"></script>
-    <script src="/dashkit/node_modules/quill/dist/quill.min.js"></script>
+{{--    <script src="/dashkit/node_modules/flatpickr/dist/flatpickr.min.js"></script>--}}
+{{--    <script src="/dashkit/node_modules/dropzone/dist/min/dropzone.min.js"></script>--}}
+{{--    <script src="/dashkit/node_modules/quill/dist/quill.min.js"></script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.core.min.js"></script>
     <script src="/dashkit/src/assets/js/flatpickr.js"></script>
     <script src="/dashkit/src/assets/js/dropzone.js"></script>
     <script src="/dashkit/src/assets/js/quill.js"></script>

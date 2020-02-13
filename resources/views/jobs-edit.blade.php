@@ -142,10 +142,12 @@
 @endsection
 
 @section('plugins')
-    <link rel="stylesheet" href="/dashkit/node_modules/flatpickr/dist/flatpickr.min.css">
+{{--    <link rel="stylesheet" href="/dashkit/node_modules/flatpickr/dist/flatpickr.min.css">--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.css">
 @endsection
 
 @section('scripts')
-    <script src="/dashkit/node_modules/flatpickr/dist/flatpickr.min.js"></script>
+{{--    <script src="/dashkit/node_modules/flatpickr/dist/flatpickr.min.js"></script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
     <script src="/dashkit/src/assets/js/flatpickr.js"></script>
 @endsection
