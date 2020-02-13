@@ -174,7 +174,9 @@
 @endsection
 
 @section('scripts')
-    <script src="/dashkit/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/dashkit/node_modules/select2/dist/js/select2.full.min.js"></script>
+{{--    <script src="/dashkit/node_modules/jquery/dist/jquery.min.js"></script>--}}
+{{--    <script src="/dashkit/node_modules/select2/dist/js/select2.full.min.js"></script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.full.min.js"></script>
     <script src="/dashkit/src/assets/js/select2.js"></script>
 @endsection

@@ -148,13 +148,17 @@
 @endsection
 
 @section('plugins')
-    <link rel="stylesheet" href="/dashkit/node_modules/flatpickr/dist/flatpickr.min.css">
+{{--    <link rel="stylesheet" href="/dashkit/node_modules/flatpickr/dist/flatpickr.min.css">--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.css">
 @endsection
 
 @section('scripts')
-    <script src="/dashkit/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/dashkit/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/dashkit/node_modules/flatpickr/dist/flatpickr.min.js"></script>
+{{--    <script src="/dashkit/node_modules/jquery/dist/jquery.min.js"></script>--}}
+{{--    <script src="/dashkit/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>--}}
+{{--    <script src="/dashkit/node_modules/flatpickr/dist/flatpickr.min.js"></script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
     <script src="/dashkit/src/assets/js/flatpickr.js"></script>
     <script src="/dashkit/src/assets/js/tooltip.js"></script>
 @endsection
