@@ -4,7 +4,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/home">
-            <img src="/img/logo.svg" class="navbar-brand-img mx-auto">
+            <img src="/img/storeworx-logo.png" class="navbar-brand-img mx-auto">
         </a>
         <div class="collapse navbar-collapse" id="sidebar-collapse">
             <ul class="navbar-nav">
