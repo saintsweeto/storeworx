@@ -4,11 +4,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/home">
-            <img src="/img/logo.svg" class="navbar-brand-img mx-auto">
+            <img src="/img/storeworx-logo.png" class="navbar-brand-img mx-auto">
         </a>
         <div class="collapse navbar-collapse" id="sidebar-collapse">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item {{ request()->getPathInfo() == '/home' ? 'active': '' }}">
                     <a class="nav-link" href="/home">
                         <span class="fe fe-home"></span> Home
                     </a>
@@ -17,32 +17,32 @@
                     <a class="nav-link" href="#sidebar-assets" data-toggle="collapse" role="button">
                         <i class="fe fe-archive"></i> Assets
                     </a>
-                    <div class="collapse" id="sidebar-assets">
+                    <div class="collapse {{ in_array(request()->getPathInfo(), ['/assets/create', '/assets']) ? 'show': '' }}" id="sidebar-assets">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
+                            <li class="nav-item {{ request()->getPathInfo() == '/assets/create' ? 'active': '' }}">
                                 <a href="/assets/create" class="nav-link">
                                     New
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/assets" class="nav-link">
+                                <a href="/assets" class="nav-link {{ request()->getPathInfo() == '/assets' ? 'active': '' }}">
                                     View All
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ request()->getPathInfo() == '/jobs' ? 'active': '' }}">
                     <a class="nav-link" href="/jobs">
                         <i class="fe fe-edit-3"></i> Jobs
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ request()->getPathInfo() == '/movements' ? 'active': '' }}">
                     <a class="nav-link" href="/movements">
                         <i class="fe fe-book-open"></i> Movements
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ request()->getPathInfo() == '/reports' ? 'active': '' }}">
                     <a class="nav-link" href="/reports">
                         <span class="fe fe-file"></span> Reports
                     </a>
