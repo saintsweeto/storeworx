@@ -10,9 +10,8 @@
                         <div class="header-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="header-pretitle">Warehouse Movement</h6>
-                                    <h1 class="header-title">{{ $asset->name }}</h1>
-                                    <span class="text-muted">{{ $asset->description }}</span>
+                                    <h6 class="header-pretitle">New movement</h6>
+                                    <h1 class="header-title">Create a new movement</h1>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +26,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <p class="text-center">
-                                            <img src="/img/placeholder.png" alt="asset-img" class="img-fluid rounded mb-3">
+                                            <img src="{{ $asset->upload ? \Illuminate\Support\Facades\Storage::url('uploads/'.$asset->upload['temp']) : '/img/placeholder.png' }}" alt="asset-img" class="img-fluid rounded mb-3">
                                         </p>
                                     </div>
                                     <div class="col-12">
@@ -93,18 +92,29 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Job #</label>
-                                            <input type="text" class="form-control @error('job_no') is-invalid @enderror" name="job_no">
-                                            @error('job_no')
-                                            <div class="invalid-feedback">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                            @enderror
+                                            <label>Entry #</label>
+                                            <input type="text" class="form-control" value="{{ $entry_no }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-12">
                                         <h6 class="text-uppercase text-muted">Asset details</h6>
                                         <hr class="navbar-divider my-3">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Item Name</label>
+                                            <select id="select2" class="form-control" data-toggle="select">
+                                                <option value=""></option>
+                                                @foreach($assets as $item)
+                                                    <option value="{{ $item->id }}" {{ $item->id === $asset->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <small class="form-text text-muted">
+                                                Don't see your asset? <a href="/assets/create">Create one</a> here now
+                                            </small>
+                                            <input type="hidden" name="asset_id" value="{{ $asset->id }}">
+                                        </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
@@ -238,5 +248,12 @@
 {{--    <script src="/dashkit/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.full.min.js"></script>
     <script src="/dashkit/src/assets/js/tooltip.js"></script>
+    <script src="/dashkit/src/assets/js/select2.js"></script>
+    <script>
+        select2.on('change', function (e) {
+            window.location.replace('/movements/create/{{ $type }}/' + e.target.value)
+        })
+    </script>
 @endsection

@@ -29,13 +29,16 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>Item</label>
+                                            <label>Item Name</label>
                                             <select id="select2" class="form-control" data-toggle="select">
                                                 <option value=""></option>
                                                 @foreach($assets as $item)
                                                     <option value="{{ $item->id }}" {{ $item->id === $asset->id ? 'selected' : '' }}>{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
+                                            <small class="form-text text-muted">
+                                                Don't see your asset? <a href="/assets/create">Create one</a> here now
+                                            </small>
                                             <input type="hidden" name="asset_id" value="{{ $asset->id }}">
                                         </div>
                                     </div>

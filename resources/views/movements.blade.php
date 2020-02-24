@@ -30,9 +30,9 @@
                                     <table class="table table-sm table-nowrap card-table">
                                         <thead>
                                         <tr>
+                                            <th>Entry #</th>
                                             <th>Item</th>
                                             <th>Type</th>
-                                            <th>Job #</th>
                                             <th>From</th>
                                             <th>To</th>
                                             <th>Quantity</th>
@@ -41,6 +41,7 @@
                                         <tbody>
                                         @foreach($movements as $movement)
                                             <tr>
+                                                <td>{{ $movement->id }}</td>
                                                 <td>{{ $movement->asset->name }}</td>
                                                 <td>
                                                     @if($movement->type == 'in')
@@ -49,7 +50,6 @@
                                                         <span class="badge badge-danger">OUT</span>
                                                     @endif
                                                 </td>
-                                                <td>{{ $movement->job_no }}</td>
                                                 <td>{{ $movement->from }}</td>
                                                 <td>{{ $movement->to }}</td>
                                                 <td>{{ $movement->quantity }}</td>

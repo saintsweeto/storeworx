@@ -26,7 +26,6 @@ class MovementRequest extends FormRequest
         return [
             'asset_id' => 'required',
             'type' => 'required',
-            'job_no' => 'required',
             'from' => 'required',
             'to' => 'required',
             'quantity' => 'required',
