@@ -35,6 +35,7 @@ class AssetController extends Controller
         $asset->finishes = $validated['finishes'];
         $asset->location = $validated['location'];
         $asset->quantity = $request->quantity ?? 0;
+        $asset->available = $request->quantity ?? 0;
         $asset->damaged = $request->damaged ?? 0;
         $asset->save();
 

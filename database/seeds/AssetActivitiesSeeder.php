@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class AssetActivitesSeeder extends Seeder
+class AssetActivitiesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
