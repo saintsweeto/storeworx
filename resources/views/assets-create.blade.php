@@ -87,13 +87,23 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label>Dimensions</label>
-                                    <input type="text" class="form-control" name="dimensions">
+                                    <input type="text" class="form-control @error('dimensions') is-invalid @enderror" name="dimensions">
+                                    @error('dimensions')
+                                    <div class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label>Finishes</label>
-                                    <input type="text" class="form-control" name="finishes">
+                                    <input type="text" class="form-control @error('finishes') is-invalid @enderror" name="finishes">
+                                    @error('finishes')
+                                    <div class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">

@@ -30,9 +30,8 @@ class AssetController extends Controller
         $asset->dimensions = $validated['dimensions'];
         $asset->finishes = $validated['finishes'];
         $asset->location = $validated['location'];
-        $asset->quantity = $validated['quantity'] ?? 0;
-        $asset->available = $validated['available'] ?? 0;
-        $asset->damaged = $validated['damaged'] ?? 0;
+        $asset->quantity = $request->quantity ?? 0;
+        $asset->damaged = $request->damaged ?? 0;
         $asset->save();
 
         return redirect('/assets');
@@ -58,9 +57,6 @@ class AssetController extends Controller
         $asset->dimensions = $request->dimensions;
         $asset->finishes = $request->finishes;
         $asset->location = $request->location;
-        $asset->quantity = $request->quantity ?? 0;
-        $asset->available = $request->quantity ?? 0;
-        $asset->damaged = $request->damaged ?? 0;
         $asset->save();
 
         return redirect('/assets');
