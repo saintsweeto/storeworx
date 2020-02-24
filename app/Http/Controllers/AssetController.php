@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AssetRequest;
 use App\Models\Asset;
+use App\Models\Upload;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AssetController extends Controller
 {
@@ -23,6 +26,7 @@ class AssetController extends Controller
         $validated = $request->validated();
 
         $asset = new Asset;
+        $asset->upload_id = $request->upload_id;
         $asset->name = $validated['name'];
         $asset->description = $validated['description'];
         $asset->code = $validated['code'];
@@ -35,6 +39,22 @@ class AssetController extends Controller
         $asset->save();
 
         return redirect('/assets');
+    }
+
+    public function upload(Request $request)
+    {
+        $file = $request->file('file');
+
+        $upload = new Upload;
+        $upload->user_id = auth()->user()->id;
+        $upload->filename = $file->getClientOriginalName();
+        $upload->temp = Str::random(8) . '.' . $file->getClientOriginalExtension();
+        $upload->extension = '.' . $file->getClientOriginalExtension();
+        $upload->save();
+
+        $request->file('file')->storeAs('public/uploads', $upload->temp);
+
+        return $upload->id;
     }
 
     public function show(Asset $asset)

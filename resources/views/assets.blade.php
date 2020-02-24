@@ -18,7 +18,7 @@
                             <div class="col-12 col-md-3">
                                 <div class="card">
                                     <a href="#" data-toggle="modal" data-target="#asset-check-{{ $asset->id }}">
-                                        <img src="/img/placeholder.png" class="card-img-top">
+                                        <img src="{{ $asset->upload ? \Illuminate\Support\Facades\Storage::url('uploads/'.$asset->upload['temp']) : '/img/placeholder.png' }}" class="card-img-top">
                                     </a>
                                     <div class="card-body">
                                         <div class="row align-items-center mb-4">
@@ -99,14 +99,14 @@
 
     @foreach($assets as $asset)
         <div class="modal fade" id="asset-check-{{ $asset->id }}" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="row m-3">
                             <div class="col-12 col-md-5">
                                 <div class="row">
                                     <div class="col-12">
-                                        <img src="/img/placeholder.png" alt="asset-img" class="img-fluid rounded mb-3">
+                                        <img src="{{ $asset->upload ? \Illuminate\Support\Facades\Storage::url('uploads/'.$asset->upload['temp']) : '/img/placeholder.png' }}" alt="asset-img" class="img-fluid rounded mb-3">
                                     </div>
                                     <div class="col-12">
                                         <hr class="navbar-divider">

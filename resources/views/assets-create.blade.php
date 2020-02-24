@@ -64,15 +64,16 @@
                         </div>
                         <hr class="mt-4 mb-5">
                         <div class="form-group">
-                            <label class="mb-1">Photos</label>
+                            <label class="mb-1">Photo</label>
                             <small class="form-text text-muted">
-                                Please use an image no larger than 1200px * 600px.
+                                Please use an image no larger than 700 * 600px.
                             </small>
-                            <div class="dropzone dropzone-single mb-3" data-toggle="dropzone" data-options='{"url": "https://", "maxFiles": 1, "acceptedFiles": "image/*"}'>
+                            <div class="dropzone dropzone-single mb-3" data-toggle="dropzone"
+                                 data-options='{"url": "/assets/upload", "maxFiles": 1, "acceptedFiles": "image/*", "headers": { "X-CSRF-TOKEN": "{{ csrf_token() }}" }}'>
                                 <div class="fallback">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="projectCoverUploads">
-                                        <label class="custom-file-label" for="projectCoverUploads">Choose file</label>
+                                        <input type="file" class="custom-file-input" id="file-upload" name="image">
+                                        <label class="custom-file-label" for="file-upload">Choose file</label>
                                     </div>
                                 </div>
                                 <div class="dz-preview dz-preview-single">
@@ -81,6 +82,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="hidden" class="dropzone-response" name="upload_id">
                         </div>
                         <hr class="mt-5 mb-5">
                         <div class="row">

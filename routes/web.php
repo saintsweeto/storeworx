@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/assets', 'AssetController@index');
     Route::get('/assets/create', 'AssetController@create');
     Route::post('/assets/store', 'AssetController@store');
+    Route::post('/assets/upload', 'AssetController@upload');
     Route::get('/assets/show/{asset}', 'AssetController@show');
     Route::get('/assets/edit/{asset}', 'AssetController@edit');
     Route::put('/assets/update/{asset}', 'AssetController@update');
