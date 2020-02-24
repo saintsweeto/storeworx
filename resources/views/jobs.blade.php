@@ -40,11 +40,6 @@
                                                 Completed <span class="badge badge-pill badge-soft-secondary">0</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="/jobs/reserved" class="nav-link">
-                                                Pending <span class="badge badge-pill badge-soft-secondary">0</span>
-                                            </a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
