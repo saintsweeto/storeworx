@@ -6,6 +6,7 @@ use App\Http\Requests\MovementRequest;
 use App\Models\Asset;
 use App\Models\Movement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MovementController extends Controller
 {
@@ -22,9 +23,14 @@ class MovementController extends Controller
 
     public function create(string $type, Asset $asset)
     {
+        $next_id = Movement::max('id');
+        $next_id = $next_id === null ? 100000 : $next_id + 1;
+
         return view('movements-create', [
+            'entry_no' => $next_id,
             'type' => $type,
             'asset' => $asset,
+            'assets' => Asset::all(),
         ]);
     }
 
@@ -35,7 +41,6 @@ class MovementController extends Controller
         $movement = new Movement;
         $movement->asset_id = $validated['asset_id'];
         $movement->type = $validated['type'];
-        $movement->job_no = $validated['job_no'];
         $movement->from = $validated['from'];
         $movement->to = $validated['to'];
         $movement->quantity = $validated['quantity'];

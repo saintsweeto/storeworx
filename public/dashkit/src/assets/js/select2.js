@@ -30,7 +30,7 @@
     var options = Object.assign(defaultOptions, elementOptions);
 
     // Init
-    $(el).select2(options);
+    window.select2 = $(el).select2(options);
   }
 
   function formatTemplate(item) {

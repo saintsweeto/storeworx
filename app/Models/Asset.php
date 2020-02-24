@@ -10,4 +10,9 @@ class Asset extends Model
     {
         return $this->hasMany(AssetActivity::class);
     }
+
+    public function upload()
+    {
+        return $this->belongsTo(Upload::class);
+    }
 }

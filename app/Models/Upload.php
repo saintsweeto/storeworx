@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ReportField extends Model
+class Upload extends Model
 {
     //
 }

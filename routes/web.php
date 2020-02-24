@@ -30,11 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/assets', 'AssetController@index');
     Route::get('/assets/create', 'AssetController@create');
     Route::post('/assets/store', 'AssetController@store');
+    Route::post('/assets/upload', 'AssetController@upload');
     Route::get('/assets/show/{asset}', 'AssetController@show');
     Route::get('/assets/edit/{asset}', 'AssetController@edit');
     Route::put('/assets/update/{asset}', 'AssetController@update');
 
     Route::get('/jobs', 'JobController@index');
+    Route::get('/jobs/create', 'JobController@create');
     Route::get('/jobs/create/{asset}', 'JobController@create');
     Route::post('/jobs/store', 'JobController@store');
     Route::get('/jobs/show/{job}', 'JobController@show');

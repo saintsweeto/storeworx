@@ -7,17 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Report extends Model
 {
     const FIELDS = [
-        'entry_no' => 'Entry No.',
-        'total_qty_avail' => 'Total Qty. Avail.',
-        'item_status' => 'Item Status',
-        'movement_from' => 'Movement From',
+        'item_code' => 'Item Code',
+        'item_type' => 'Item Type',
+        'item_sku' => 'Item SKU',
+        'description' => 'Description',
         'comments' => 'Comments',
-        'user' => 'User',
-        'movement_qty' => 'Movement Qty.',
-        'pending_reserved' => 'Pending Reserved',
-        'current_location' => 'Current Location',
-        'movement_to' => 'Movement To',
-        'status' => 'Status',
+        'finishes' => 'Finishes',
         'dimensions' => 'Dimensions',
+        'current_location' => 'Current Location',
+        'total_quantity' => 'Total Quantity',
+        'total_available' => 'Total Available',
+        'total_damaged' => 'Total Damaged',
+        'total_reserved' => 'Total Reserved',
+        'movement_type' => 'Movement Type',
+        'date_time' => 'Date & Time',
+        'job_status' => 'Job Status',
+        'job_instructions' => 'Job Instructions',
+        'site_contact' => 'Site Contact',
     ];
 }

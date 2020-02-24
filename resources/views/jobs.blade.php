@@ -14,7 +14,7 @@
                                     <h1 class="header-title">Job Orders</h1>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="/jobs/create" class="btn btn-warning lift disabled">New job</a>
+                                    <a href="/jobs/create" class="btn btn-warning lift">New job</a>
                                 </div>
                             </div>
                             <div class="row align-items-center">
@@ -38,11 +38,6 @@
                                         <li class="nav-item">
                                             <a href="/jobs/completed" class="nav-link">
                                                 Completed <span class="badge badge-pill badge-soft-secondary">0</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/jobs/reserved" class="nav-link">
-                                                Pending <span class="badge badge-pill badge-soft-secondary">0</span>
                                             </a>
                                         </li>
                                     </ul>

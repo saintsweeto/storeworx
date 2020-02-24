@@ -28,6 +28,8 @@ class AssetRequest extends FormRequest
             'description' => 'required',
             'code' => 'required',
             'sku' => 'required',
+            'dimensions' => 'required',
+            'finishes' => 'required',
             'location' => 'required',
         ];
     }
