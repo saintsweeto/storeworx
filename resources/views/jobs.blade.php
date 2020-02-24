@@ -14,7 +14,7 @@
                                     <h1 class="header-title">Job Orders</h1>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="/jobs/create" class="btn btn-warning lift disabled">New job</a>
+                                    <a href="/jobs/create" class="btn btn-warning lift">New job</a>
                                 </div>
                             </div>
                             <div class="row align-items-center">

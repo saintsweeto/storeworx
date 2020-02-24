@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\JobRequest;
 use App\Models\Asset;
 use App\Models\Job;
-use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
@@ -17,7 +16,10 @@ class JobController extends Controller
 
     public function create(Asset $asset)
     {
-        return view('jobs-create', compact('asset'));
+        return view('jobs-create', [
+            'asset' => $asset,
+            'assets' => Asset::all(),
+        ]);
     }
 
     public function store(JobRequest $request)
@@ -25,12 +27,12 @@ class JobController extends Controller
         $validated = $request->validated();
 
         $job = new Job;
-        $job->asset_id = $request['asset_id'];
-        $job->requester = $request['requester'];
-        $job->date = date('Y-m-d', strtotime($request['date']));
-        $job->from = $request['from'];
-        $job->to = $request['to'];
-        $job->quantity = $request['quantity'];
+        $job->asset_id = $validated['asset_id'];
+        $job->requester = $validated['requester'];
+        $job->date = date('Y-m-d', strtotime($validated['date']));
+        $job->from = $validated['from'];
+        $job->to = $validated['to'];
+        $job->quantity = $validated['quantity'];
         $job->job_instructions = $request->job_instructions;
         $job->site_contact_details = $request->site_contact_details;
         $job->status = $request->action;

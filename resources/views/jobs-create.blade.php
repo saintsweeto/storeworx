@@ -11,8 +11,7 @@
                             <div class="row align-items-center">
                                 <div class="col">
                                     <h6 class="header-pretitle">New Job</h6>
-                                    <h1 class="header-title">{{ $asset->name }}</h1>
-                                    <span class="text-muted">{{ $asset->description }}</span>
+                                    <h1 class="header-title">Create a new job</h1>
                                 </div>
                             </div>
                         </div>
@@ -20,14 +19,27 @@
 
                     <form class="mb-4" method="POST" action="/jobs/store" autocomplete="off">
                         @csrf
-                        <input type="hidden" name="asset_id" value="{{ $asset->id }}">
                         <div class="row">
                             <div class="col-12 col-md-4">
                                 <p class="text-center mb-3">
-                                    <img src="/img/placeholder.png" alt="asset-img" class="img-fluid rounded">
+                                    <img src="{{ $asset->upload ? \Illuminate\Support\Facades\Storage::url('uploads/'.$asset->upload['temp']) : '/img/placeholder.png' }}" alt="asset-img" class="img-fluid rounded">
                                 </p>
                             </div>
                             <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Item</label>
+                                            <select id="select2" class="form-control" data-toggle="select">
+                                                <option value=""></option>
+                                                @foreach($assets as $item)
+                                                    <option value="{{ $item->id }}" {{ $item->id === $asset->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <input type="hidden" name="asset_id" value="{{ $asset->id }}">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
@@ -159,6 +171,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.full.min.js"></script>
     <script src="/dashkit/src/assets/js/flatpickr.js"></script>
     <script src="/dashkit/src/assets/js/tooltip.js"></script>
+    <script src="/dashkit/src/assets/js/select2.js"></script>
+    <script>
+        select2.on('change', function (e) {
+            window.location.replace('/jobs/create/' + e.target.value)
+        })
+    </script>
 @endsection

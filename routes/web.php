@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/assets/update/{asset}', 'AssetController@update');
 
     Route::get('/jobs', 'JobController@index');
+    Route::get('/jobs/create', 'JobController@create');
     Route::get('/jobs/create/{asset}', 'JobController@create');
     Route::post('/jobs/store', 'JobController@store');
     Route::get('/jobs/show/{job}', 'JobController@show');
