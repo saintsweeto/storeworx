@@ -10,9 +10,8 @@
                         <div class="header-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="header-pretitle">Edit Job # {{ $job->id }}</h6>
-                                    <h1 class="header-title">{{ $job->asset->name }}</h1>
-                                    <span class="text-muted">{{ $job->asset->description }}</span
+                                    <h6 class="header-pretitle">Edit Job</h6>
+                                    <h1 class="header-title">Update existing job</h1>
                                 </div>
                             </div>
                         </div>
@@ -25,33 +24,51 @@
                         <div class="row">
                             <div class="col-12 col-md-4">
                                 <p class="text-center mb-3">
-                                    <img src="/img/placeholder.png" alt="asset-img" class="img-fluid rounded">
+                                    <img src="{{ $job->asset->upload ? \Illuminate\Support\Facades\Storage::url('uploads/'.$job->asset->upload['temp']) : '/img/placeholder.png' }}" alt="asset-img" class="img-fluid rounded">
                                 </p>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group">
+                                            <label>Job #</label>
+                                            <input type="text" class="form-control" value="{{ $job->id }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-8">
+                                        <div class="form-group">
+                                            <label>Item Name</label>
+                                            <input type="text" class="form-control" value="{{ $job->asset->name }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
+                                        </div>
+                                    </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Item Type / Code</label>
-                                            <input type="text" class="form-control" placeholder="{{ $job->asset->code }}" readonly>
+                                            <input type="text" class="form-control" value="{{ $job->asset->code }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Item SKU</label>
-                                            <input type="text" class="form-control" placeholder="{{ $job->asset->sku }}" readonly>
+                                            <input type="text" class="form-control" value="{{ $job->asset->sku }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Item Dimensions</label>
-                                            <input type="text" class="form-control" placeholder="{{ $job->asset->dimensions }}" readonly>
+                                            <input type="text" class="form-control" value="{{ $job->asset->dimensions }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="Read only input" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input type="number" class="form-control @error('quantity') is-invalid @enderror" name="quantity" value="{{ $job->quantity }}">
+                                            <input type="number" class="form-control @error('quantity') is-invalid @enderror" name="quantity" value="{{ $job->quantity }}" max="{{ $job->asset->available }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="You can only request {{ $job->asset->available }} more">
                                             @error('quantity')
                                             <div class="invalid-feedback">
                                                 <strong>{{ $message }}</strong>
@@ -143,6 +160,8 @@
 
 @section('plugins')
 {{--    <link rel="stylesheet" href="/dashkit/node_modules/flatpickr/dist/flatpickr.min.css">--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.css">
 @endsection
 
@@ -150,4 +169,5 @@
 {{--    <script src="/dashkit/node_modules/flatpickr/dist/flatpickr.min.js"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
     <script src="/dashkit/src/assets/js/flatpickr.js"></script>
+    <script src="/dashkit/src/assets/js/tooltip.js"></script>
 @endsection

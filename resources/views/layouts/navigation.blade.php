@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item {{ request()->getPathInfo() == '/reports' ? 'active': '' }}">
-                    <a class="nav-link" href="/reports">
+                    <a class="nav-link" href="/reports/assets">
                         <span class="fe fe-file"></span> Reports
                     </a>
                 </li>

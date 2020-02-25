@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AssetRequest;
 use App\Models\Asset;
+use App\Models\AssetActivity;
 use App\Models\Upload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -38,6 +39,13 @@ class AssetController extends Controller
         $asset->available = $request->quantity ?? 0;
         $asset->damaged = $request->damaged ?? 0;
         $asset->save();
+
+        $activity = new AssetActivity;
+        $activity->asset_id = $asset->id;
+        $activity->user_id = auth()->user()->id;
+        $activity->icon = 'fe-archive';
+        $activity->description = '<p class="small text-gray-700 mb-0"><a href="#">'.auth()->user()->name.'</a> created this item</p>';
+        $activity->save();
 
         return redirect('/assets');
     }

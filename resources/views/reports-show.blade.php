@@ -5,7 +5,7 @@
     <div class="main-content">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-10 col-xl-8">
+                <div class="col-12 col-md-10">
                     <div class="header mt-md-5">
                         <div class="header-body">
                             <div class="row align-items-center">
@@ -32,7 +32,7 @@
                         <div class="row">
                             <div class="col text-center">
                                 <img src="/img/client-logo.png" class="img-fluid mb-4" style="max-width: 10rem;">
-                                <h2 class="mb-2">{{ rtrim(ucfirst($report->type), 's') }} Report from Store<span class="text-warning">Worx</span></h2>
+                                <h2 class="mb-2">Store<span class="text-warning">Worx</span> {{ rtrim(ucfirst($report->type), 's') }} Report</h2>
                                 <p class="text-muted mb-6">Report #SX{{ $report->id }}</p>
                             </div>
                         </div>
@@ -72,9 +72,12 @@
                                         @foreach($assets as $asset)
                                             <tr>
                                                 <td>{{ $asset->name }}</td>
-                                                @for($x = 0; $x < count($fields); $x++)
-                                                    <td>{{ rand(10, 100) }}</td>
-                                                @endfor
+                                                @foreach($fields as $field)
+                                                    <td>{{ $asset->{$field} }}</td>
+                                                @endforeach
+{{--                                                @for($x = 0; $x < count($fields); $x++)--}}
+{{--                                                    <td>{{ rand(10, 100) }}</td>--}}
+{{--                                                @endfor--}}
                                             </tr>
                                         @endforeach
                                         </tbody>

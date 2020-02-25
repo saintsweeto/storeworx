@@ -180,7 +180,7 @@
                                                                 <div class="col ml-n2">
                                                                     {!! $activity->description !!}
                                                                     <small class="text-muted">
-                                                                        2m ago
+                                                                        {{ \Carbon\Carbon::parse($activity->created_at)->diffForHumans() }}
                                                                     </small>
                                                                 </div>
                                                             </div>

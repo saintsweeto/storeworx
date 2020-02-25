@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/movements/create/{type}/{asset}', 'MovementController@create');
     Route::post('/movements/store', 'MovementController@store');
 
-    Route::get('/reports', 'ReportController@index');
+    Route::get('/reports/{type}', 'ReportController@index');
     Route::post('/reports/store', 'ReportController@store');
     Route::get('/reports/show/{report}', 'ReportController@show');
 });
