@@ -16,6 +16,7 @@ class CreateAssetActivitiesTable extends Migration
         Schema::create('asset_activities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('asset_id');
+            $table->integer('user_id');
             $table->string('icon');
             $table->text('description');
             $table->timestamps();
