@@ -68,7 +68,8 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input type="number" class="form-control @error('quantity') is-invalid @enderror" name="quantity">
+                                            <input type="number" class="form-control @error('quantity') is-invalid @enderror" name="quantity" max="{{ $asset->available }}"
+                                                   data-toggle="tooltip" data-placement="bottom" title="You can only request {{ $asset->available }} more">
                                             @error('quantity')
                                             <div class="invalid-feedback">
                                                 <strong>{{ $message }}</strong>
