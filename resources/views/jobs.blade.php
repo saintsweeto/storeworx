@@ -25,21 +25,21 @@
                                                 All <span class="badge badge-pill badge-soft-secondary">{{ count($jobs) }}</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="/jobs/reserved" class="nav-link">
-                                                Reserved <span class="badge badge-pill badge-soft-secondary">0</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/jobs/pending" class="nav-link">
-                                                Pending <span class="badge badge-pill badge-soft-secondary">0</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/jobs/completed" class="nav-link">
-                                                Completed <span class="badge badge-pill badge-soft-secondary">0</span>
-                                            </a>
-                                        </li>
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a href="/jobs/reserved" class="nav-link">--}}
+{{--                                                Reserved <span class="badge badge-pill badge-soft-secondary">0</span>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a href="/jobs/pending" class="nav-link">--}}
+{{--                                                Pending <span class="badge badge-pill badge-soft-secondary">0</span>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a href="/jobs/completed" class="nav-link">--}}
+{{--                                                Completed <span class="badge badge-pill badge-soft-secondary">0</span>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
                                     </ul>
                                 </div>
                             </div>
