@@ -9,13 +9,14 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function index()
+    public function index($type = 'assets')
     {
         $reports = Report::all();
         $assets = Asset::all();
         $fields = Report::FIELDS;
 
         return view('reports', [
+            'type' => $type,
             'reports' => $reports,
             'assets' => $assets,
             'fields' => $fields,
@@ -39,13 +40,13 @@ class ReportController extends Controller
         $report->fields = json_encode($request['fields']);
         $report->save();
 
-        return redirect('/reports');
+        return redirect('/reports/assets');
     }
 
     public function show(Report $report)
     {
         $fields = array_map(function ($field_id) {
-            return Report::FIELDS[$field_id];
+            return $field_id;
         }, string_to_array($report->fields));
 
         $assets = array_map(function (int $asset_id) {

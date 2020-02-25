@@ -114,10 +114,10 @@
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
                                                         <label>Report Type</label>
-                                                        <select class="form-control" name="type" data-toggle="select">
-                                                            <option value="assets">Assets</option>
-                                                            <option value="jobs">Jobs</option>
-                                                            <option value="movements">Movements</option>
+                                                        <select id="select2" class="form-control" name="type" data-toggle="select">
+                                                            <option value="assets" {{ $type === 'assets' ? 'selected' : '' }}>Assets</option>
+{{--                                                            <option value="jobs" {{ $type === 'jobs' ? 'selected' : '' }}>Jobs</option>--}}
+{{--                                                            <option value="movements" {{ $type === 'movements' ? 'selected' : '' }}>Movements</option>--}}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -179,4 +179,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.full.min.js"></script>
     <script src="/dashkit/src/assets/js/select2.js"></script>
+    <script>
+        $('#select2').on('change', function (e) {
+            window.location.replace('/reports/' + e.target.value)
+        })
+    </script>
 @endsection
